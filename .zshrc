@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zsh/custom
 
 # Basic work environment
-export DEFAULT_USER=jan
+export DEFAULT_USER=Julian
 export EDITOR=vim
 
 # Set the theme
@@ -17,11 +17,19 @@ esac
 
 
 # Modify powerline styling
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
-POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
-POWERLEVEL9K_VIRTUALENV_FOREGROUND="white"
+# POWERLEVEL9K_MODE='awesome-patched'
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv dir vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+# POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
+# POWERLEVEL9K_VIRTUALENV_FOREGROUND="white"
+
+#POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_MODE='compatible'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator virtualenv dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 
 # Uncomment the following line to use case-sensitive completion.

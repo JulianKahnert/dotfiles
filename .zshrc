@@ -18,8 +18,8 @@ esac
 
 # Modify powerline styling
 POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context root_indicator virtualenv dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time os_icon)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator virtualenv dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
 POWERLEVEL9K_VIRTUALENV_FOREGROUND="white"
 

@@ -34,7 +34,7 @@ else
 fi
 
 # Finally change shell
-sudo echo "/bin/zsh" >> /etc/shells
+sudo echo $(which zsh) >> /etc/shells
 chsh -s $(which zsh)
 
 

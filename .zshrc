@@ -23,6 +23,31 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
 POWERLEVEL9K_VIRTUALENV_FOREGROUND="white"
 
+# change background color for each system
+if [ "$(uname)" = "Darwin" ]
+then
+	color_foreground="white"
+	color_background="black"
+
+elif [ "$(uname)" = "Linux" ]
+then
+	color_foreground="white"
+	color_background="089"
+
+elif [ "$(uname)" = "FreeBSD" ]
+then
+	color_foreground="white"
+	color_background="124"
+
+fi
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND=$color_background
+POWERLEVEL9K_DIR_HOME_FOREGROUND=$color_foreground
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=$color_background
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$color_foreground
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$color_background
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$color_foreground
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -69,7 +94,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git virtualenv)
 
 
-
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -81,18 +105,6 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -101,20 +113,10 @@ export LANG=en_US.UTF-8
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# User specific aliases and functions
-
-alias ls='ls -lah'
-
-#set show-all-if-ambiguous on
-#set completion-ignore-case on
-
-
-# Various aliases for cool commands
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
+alias ll='ll -ah'
+
 
 # Avoid homebrew from sending analytics
 export HOMEBREW_NO_ANALYTICS=1

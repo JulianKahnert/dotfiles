@@ -122,7 +122,7 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
-alias ll='ll -ah'
+alias ll='ls -lah'
 
 
 # Avoid homebrew from sending analytics

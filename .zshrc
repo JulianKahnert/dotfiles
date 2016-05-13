@@ -128,8 +128,10 @@ export LANG=en_US.UTF-8
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
 alias ll='ls -lah'
-alias tmux='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
+alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
 
 
 # Avoid homebrew from sending analytics
 export HOMEBREW_NO_ANALYTICS=1
+
+eval tmux ls

@@ -48,6 +48,9 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$color_foreground
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$color_background
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$color_foreground
 
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,7 +94,11 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv)
+plugins=(git virtualenv osx sublime sudo Forklift tmux)
+
+# Tmux-plugin specific settings
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART_ONCE="true"
 
 
 # User configuration

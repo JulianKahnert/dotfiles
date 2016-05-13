@@ -29,15 +29,24 @@ then
 	color_foreground="white"
 	color_background="black"
 
+	ZSH_TMUX_AUTOSTART="false"
+	ZSH_TMUX_AUTOSTART_ONCE="false"
+
 elif [ "$(uname)" = "Linux" ]
 then
 	color_foreground="white"
 	color_background="089"
 
+	ZSH_TMUX_AUTOSTART="true"
+	ZSH_TMUX_AUTOSTART_ONCE="true"
+
 elif [ "$(uname)" = "FreeBSD" ]
 then
 	color_foreground="white"
 	color_background="124"
+
+	ZSH_TMUX_AUTOSTART="true"
+	ZSH_TMUX_AUTOSTART_ONCE="true"
 
 fi
 
@@ -94,11 +103,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv osx sublime sudo Forklift tmux)
-
-# Tmux-plugin specific settings
-ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_AUTOSTART_ONCE="true"
+plugins=(git osx sublime sudo Forklift tmux)
 
 
 # User configuration

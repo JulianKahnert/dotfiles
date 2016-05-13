@@ -45,8 +45,8 @@ then
 	color_foreground="white"
 	color_background="124"
 
-	ZSH_TMUX_AUTOSTART="true"
-	ZSH_TMUX_AUTOSTART_ONCE="true"
+	ZSH_TMUX_AUTOSTART="false"
+	ZSH_TMUX_AUTOSTART_ONCE="false"
 
 fi
 

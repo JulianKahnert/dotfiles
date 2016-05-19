@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.zsh/custom
+export DOTFILES=$HOME/.dotfiles
 
 # Basic work environment
 export DEFAULT_USER=Julian
@@ -134,4 +135,10 @@ alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/
 # Avoid homebrew from sending analytics
 export HOMEBREW_NO_ANALYTICS=1
 
+# Custom functions
+upgrade_dotfiles () {
+    /bin/sh $DOTFILES/upgrade-dotfiles.sh
+}
+
 eval tmux ls
+

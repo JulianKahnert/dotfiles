@@ -37,15 +37,13 @@ let g:SimpylFold_docstring_preview=1
 
 
 " PYTHON INDENTATION
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
+au BufNewFile,BufRead *.py set tabstop=4 
+      \softtabstop=4 
+      \shiftwidth=4  
+      \textwidth=79  
+      \expandtab  
+      \autoindent  
+      \fileformat=unix
 
 " FLAGGING UNNECESSARY WHITESPACE
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/

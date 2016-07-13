@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin Area
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-scripts/tcomment'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'altercation/vim-colors-solarized'
@@ -26,7 +27,7 @@ Bundle 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+highlight BadWhitespace ctermbg=red guibg=red
 
 " Enable folding
 set foldmethod=indent

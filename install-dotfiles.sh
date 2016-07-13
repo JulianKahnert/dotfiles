@@ -37,5 +37,5 @@ fi
 # Finally change shell
 chsh -s $(which zsh)
 
-vim +PluginInstall +qall && vim +BundleInstall +qall
+vim +BundleInstall +qall
 

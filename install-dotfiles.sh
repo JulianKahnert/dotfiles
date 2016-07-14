@@ -38,4 +38,6 @@ fi
 chsh -s $(which zsh)
 
 vim +BundleInstall +qall
+cd ~/.vim/bundle/YouCompleteMe
+./install.py
 

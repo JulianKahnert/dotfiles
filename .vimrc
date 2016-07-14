@@ -21,6 +21,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'iamcco/markdown-preview.vim'
 Bundle 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
@@ -75,6 +76,14 @@ set number
 " SYSTEM CLIPBOARD
 set clipboard=unnamed
 
+" MARKDOWN PREVIEW
+" https://github.com/iamcco/markdown-preview.vim
+let g:mkdp_path_to_chrome = "open -a Safari"
+let g:mkdp_auto_start = 1
+let g:mkdp_auto_open = 1
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
 
 " FROM JAN
 " Set to auto read when file is changed from the outside
@@ -144,5 +153,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <space> za
 " Enable changing the colormap using F5
 call togglebg#map("<F7>")
+" Markdown
+nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
+imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
+nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode
+imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
 
 

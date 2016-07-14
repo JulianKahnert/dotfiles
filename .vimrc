@@ -12,17 +12,28 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Plugin Area
+" #### Plugin Area ####
+" fold code
 Plugin 'tmhedberg/SimpylFold'
+" Python: indentation
 Plugin 'vim-scripts/indentpython.vim'
+" comment with shortcut
 Plugin 'vim-scripts/tcomment'
+" syntax checking
 Plugin 'scrooloose/syntastic'
+" Python: syntax/style checking
 Plugin 'nvie/vim-flake8'
+" color theme
 Plugin 'altercation/vim-colors-solarized'
+" file browsing
 Plugin 'scrooloose/nerdtree'
+" file browsing tabs
 Plugin 'jistr/vim-nerdtree-tabs'
+" Markdown Prewview
 Plugin 'iamcco/markdown-preview.vim'
+" bracket auto closing
 Plugin 'itmammoth/doorboy.vim'
+" code-completion engine
 Bundle 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
@@ -86,7 +97,7 @@ let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
 
-" FROM JAN
+" #### FROM JAN ####
 " Set to auto read when file is changed from the outside
 set autoread
 " Ignore case when searching
@@ -97,9 +108,6 @@ set smartcase
 set hlsearch
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
 " Be smart when using tabs ;)
@@ -152,12 +160,14 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 " Enable folding with the spacebar
 nnoremap <space> za
+" Flake8 - Python syntax/style checking
+autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
 " Enable changing the colormap using F5
 call togglebg#map("<F7>")
 " Markdown
-nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
-imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
-nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode
-imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
+nmap <silent> <F8> <Plug>MarkdownPreview
+imap <silent> <F8> <Plug>MarkdownPreview
+nmap <silent> <F9> <Plug>StopMarkdownPreview
+imap <silent> <F9> <Plug>StopMarkdownPreview
 
 

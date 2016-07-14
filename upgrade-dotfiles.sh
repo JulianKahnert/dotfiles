@@ -7,8 +7,9 @@ DOTDIR=$(pwd)
 echo "Updating Dotfiles. Stashing changes if necessary."
 cd "$DOTDIR"
 git stash
-if git pull --rebase --stat origin master
+if git pull --rebase --stat origin master 
 then
+  vim +BundleInstall +BundleClean +qall
   echo  "Your dotfiles have been updated and/or is at the current version."
 else
   echo "There was an error updating. Try again later?"

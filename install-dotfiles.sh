@@ -4,43 +4,38 @@
 cd "$(dirname "$0")"
 DOTDIR=$(pwd)
 
-# Ask for the administrator password upfront
-sudo -v
-
 # Update all submodules
 git submodule init && git submodule update
 
 # Create symlinks into the home dir to enable usage of the files
-ln -s $DOTDIR/.oh-my-zsh $HOME
-ln -s $DOTDIR/.zshrc     $HOME
-ln -s $DOTDIR/.zsh       $HOME
-ln -s $DOTDIR/.vim       $HOME
-ln -s $DOTDIR/.vimrc     $HOME
-ln -s $DOTDIR/.nanorc	 $HOME
-ln -s $DOTDIR/.tmux.conf $HOME
-
+ln -sf $DOTDIR/.oh-my-zsh $HOME
+ln -sf $DOTDIR/.zshrc     $HOME
+ln -sf $DOTDIR/.zsh       $HOME
+ln -sf $DOTDIR/.vim       $HOME
+ln -sf $DOTDIR/.vimrc     $HOME
+ln -sf $DOTDIR/.nanorc    $HOME
+ln -sf $DOTDIR/.tmux.conf $HOME
 
 # Link font to library and clear font cache for user fonts
 if [ "$(uname)" = "Darwin" ]
 then
 
-    ln -s $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/Library/Fonts/
-    ln -s $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/Library/Fonts/
+    ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/Library/Fonts/
+    ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/Library/Fonts/
     atsutil databases -remove
 
 else
     mkdir -p $HOME/.local/share/fonts
-    ln -s $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/.local/share/fonts
-    ln -s $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/.local/share/fonts
+    ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/.local/share/fonts
+    ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/.local/share/fonts
 
     fc-cache -f
     echo "Remember to change the console font accordingly!"
 fi
 
 # Finally change shell
-chsh -s $(which zsh)
+chsh -s $(which zsh) $USER
 
 vim +BundleInstall +qall
-cd ~/.vim/bundle/YouCompleteMe
-./install.py
+cd $HOME/.vim/bundle/YouCompleteMe && ./install.py
 

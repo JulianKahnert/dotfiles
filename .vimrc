@@ -33,6 +33,8 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'iamcco/markdown-preview.vim'
 " bracket auto closing
 Plugin 'itmammoth/doorboy.vim'
+" LaTex plugin
+Plugin 'lervag/vimtex'
 " code-completion engine
 Bundle 'Valloric/YouCompleteMe'
 
@@ -164,10 +166,11 @@ nnoremap <space> za
 autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
 " Enable changing the colormap using F5
 call togglebg#map("<F7>")
+" Map Ctrl+l to clear highlighted searches
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " Markdown
 nmap <silent> <F8> <Plug>MarkdownPreview
 imap <silent> <F8> <Plug>MarkdownPreview
 nmap <silent> <F9> <Plug>StopMarkdownPreview
 imap <silent> <F9> <Plug>StopMarkdownPreview
-
 

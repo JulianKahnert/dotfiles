@@ -7,6 +7,7 @@ sh ~/.dotfiles/install-dotfiles.sh
 ```
 Also needed:
 * flake8: `conda install flake8`
+* LaTex: `brew cask install mactex`
 
 # Upgrade
 ```

@@ -4,6 +4,9 @@
 cd "$(dirname "$0")"
 DOTDIR=$(pwd)
 
+# Ask for the administrator password upfront
+sudo -v
+
 # Update all submodules
 git submodule init && git submodule update
 

@@ -19,9 +19,9 @@ ln -sf $DOTDIR/.tmux.conf $HOME
 if [ "$(uname)" = "Darwin" ]
 then
 
-    sh $DOTDIR/brew.sh
-    sh $DOTDIR/macOS.sh
-    sh $DOTDIR/macOS_install.sh
+    sh $DOTDIR/brew.sh          # install Homebrew and some important tools
+    sh $DOTDIR/macOS.sh         # change several settings in macOS
+    sh $DOTDIR/macOS_install.sh # install Apps from the MacAppStore
 
     ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/Library/Fonts/
     ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/Library/Fonts/

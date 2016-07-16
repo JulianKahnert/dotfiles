@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Install apps via the MacAppStore-cli
 # required: brew install mas

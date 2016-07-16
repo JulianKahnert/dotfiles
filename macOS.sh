@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # special thanks to Mathias Bynens: https://mths.be/macos
 # Ask for the administrator password upfront

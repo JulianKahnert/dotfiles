@@ -21,7 +21,8 @@ then
 
     sh $DOTDIR/brew.sh
     sh $DOTDIR/macOS.sh
-    
+    sh $DOTDIR/macOS_install.sh
+
     ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/Library/Fonts/
     ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/Library/Fonts/
     atsutil databases -remove
@@ -35,6 +36,6 @@ else
     echo "Remember to change the console font accordingly!"
 fi
 
-vim +BundleInstall +qall
+vim +BundleInstall +BundleUpdate +BundleClean +qall
 cd $HOME/.vim/bundle/YouCompleteMe && ./install.py
 

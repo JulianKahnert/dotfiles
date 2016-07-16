@@ -24,6 +24,8 @@ then
     ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/Library/Fonts/
     atsutil databases -remove
 
+    sh $DOTDIR/macOS.sh
+
 else
     mkdir -p $HOME/.local/share/fonts
     ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/.local/share/fonts

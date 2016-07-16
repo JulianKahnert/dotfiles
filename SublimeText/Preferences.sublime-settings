@@ -1,0 +1,31 @@
+{
+	"open_files_in_new_window": false,
+	"show_encoding": true,
+	"dictionary": "Packages/User/German.dic",
+	"default_encoding": "UTF-8",
+	"fallback_encoding": "Western (Windows 1252)",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"ignored_words":
+	[
+		"Delay",
+		"Gewichtungsfunktionen",
+		"Intervallgrenzen",
+		"Lokalisationsfehler",
+		"Mikrofonpositionen",
+		"Mikrofonsignale",
+		"Mikrofonübertragungsfunktionen"
+	],
+	"added_words":
+	[
+		"Richtcharakterisitk",
+		"Mikrofonmodell",
+		"Gewichtungsfunktion",
+		"Mikrofonkombination",
+		"Siebträgermaschine",
+		"Macchiato",
+		"erstmal"
+	]
+}

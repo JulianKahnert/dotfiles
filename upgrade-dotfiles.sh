@@ -14,4 +14,11 @@ then
 else
   echo "There was an error updating. Try again later?"
 fi
+
+# Link font to library and clear font cache for user fonts
+if [ "$(uname)" = "Darwin" ]
+then
+    sh $DOTDIR/macOS.sh
+fi
+
 git stash apply

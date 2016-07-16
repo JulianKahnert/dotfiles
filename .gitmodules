@@ -9,9 +9,6 @@
 	path = .awesome-terminal-fonts
 	url = https://github.com/gabrielelana/awesome-terminal-fonts.git
 	branch = patching-strategy
-[submodule ".nano"]
-	path = .nano
-	url = https://github.com/serialhex/nano-highlight.git
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git

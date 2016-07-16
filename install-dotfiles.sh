@@ -13,7 +13,6 @@ ln -sf $DOTDIR/.zshrc     $HOME
 ln -sf $DOTDIR/.zsh       $HOME
 ln -sf $DOTDIR/.vim       $HOME
 ln -sf $DOTDIR/.vimrc     $HOME
-ln -sf $DOTDIR/.nanorc    $HOME
 ln -sf $DOTDIR/.tmux.conf $HOME
 
 # Link font to library and clear font cache for user fonts

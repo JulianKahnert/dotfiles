@@ -88,6 +88,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 if [ "$(uname)" = "Darwin" ]
 then
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
+    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
 fi
 source $ZSH/oh-my-zsh.sh
 

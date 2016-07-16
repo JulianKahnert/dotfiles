@@ -1,1 +1,12 @@
 .netrwhist
+.vim/bundle/SimpylFold/
+.vim/bundle/YouCompleteMe/
+.vim/bundle/doorboy.vim/
+.vim/bundle/indentpython.vim/
+.vim/bundle/markdown-preview.vim/
+.vim/bundle/nerdtree/
+.vim/bundle/syntastic/
+.vim/bundle/tcomment/
+.vim/bundle/vim-colors-solarized/
+.vim/bundle/vim-flake8/
+.vim/bundle/vimtex/

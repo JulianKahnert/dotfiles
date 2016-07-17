@@ -578,6 +578,6 @@ defaults write org.gpgtools.gpgmail DefaultSecurityMethod -int 2
 ###############################################################################
 
 # Install Sublime Text settings
-cp -rf $DOTDIR/SublimeText/ ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null
+cp -rf $DOTDIR/macOS/SublimeText/ ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

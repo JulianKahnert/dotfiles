@@ -29,3 +29,9 @@ sh ~/.dotfiles/upgrade-dotfiles.sh
 gcc     comment current line
 VIS: gc comment section
 ```
+
+# ToDo
+
+* Makefile
+* `init.sh for Linux and FreeBSD
+* write Help for dotfiles.sh

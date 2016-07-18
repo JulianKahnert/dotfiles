@@ -1,13 +1,18 @@
 #!/bin/sh
+
+# Bash strict mode: http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+IFS=$'\n\t'
+
 # Change directory into the repository if called from elsewhere
 cd "$(dirname "$0")"
 DOTDIR=$(pwd)
 
 if [ "$(uname)" = "Darwin" ]; then
     SYSTEM="macOS"
-elif ["$(uname)" = "Linux"]; then
+elif [ "$(uname)" = "Linux" ]; then
     SYSTEM="Linux"
-elif ["$(uname)" = "FreeBSD"]; then
+elif [ "$(uname)" = "FreeBSD" ]; then
     SYSTEM="BSD"
 else
     exit 1
@@ -20,27 +25,27 @@ case "$1" in
     git submodule init && git submodule update
 
     # Create symlinks into the home dir to enable usage of the files
-    ln -sf $DOTDIR/.oh-my-zsh $HOME
-    ln -sf $DOTDIR/.zshrc     $HOME
-    ln -sf $DOTDIR/.zsh       $HOME
-    ln -sf $DOTDIR/.vim       $HOME
-    ln -sf $DOTDIR/.vimrc     $HOME
-    ln -sf $DOTDIR/.tmux.conf $HOME
+    ln -sf "$DOTDIR/.oh-my-zsh" 	"$HOME"
+    ln -sf "$DOTDIR/.zshrc"     	"$HOME"
+    ln -sf "$DOTDIR/.zsh"       	"$HOME"
+    ln -sf "$DOTDIR/.vim"       	"$HOME"
+    ln -sf "$DOTDIR/.vimrc"			"$HOME"
+    ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
 
     # Link font to library and clear font cache for user fonts
     if [ SYSTEM = "macOS" ]; then
-        $DOTDIR/brew.sh          # install Homebrew and some important tools
-        $DOTDIR/macOS.sh         # change several settings in macOS
-        $DOTDIR/macOS_install.sh # install Apps from the MacAppStore
+        "$DOTDIR/brew.sh"          # install Homebrew and some important tools
+        "$DOTDIR/macOS.sh"         # change several settings in macOS
+        "$DOTDIR/macOS_install.sh" # install Apps from the MacAppStore
 
-        ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/Library/Fonts/
-        ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/Library/Fonts/
+        ln -sf "$DOTDIR/.awesome-terminal-fonts/patched/*.sh" "$HOME/Library/Fonts/"
+        ln -sf "$DOTDIR/.awesome-terminal-fonts/patched/*.ttf" "$HOME/Library/Fonts/"
         atsutil databases -remove
 
     else
-        mkdir -p $HOME/.local/share/fonts
-        ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.sh $HOME/.local/share/fonts
-        ln -sf $DOTDIR/.awesome-terminal-fonts/patched/*.ttf $HOME/.local/share/fonts
+        mkdir -p "$HOME/.local/share/fonts"
+        ln -sf "$DOTDIR/.awesome-terminal-fonts/patched/*.sh" "$HOME/.local/share/fonts"
+        ln -sf "$DOTDIR/.awesome-terminal-fonts/patched/*.ttf" "$HOME/.local/share/fonts"
 
         fc-cache -f
         echo "Remember to change the console font accordingly!"
@@ -48,7 +53,7 @@ case "$1" in
     fi
 
     vim +BundleInstall +BundleUpdate +BundleClean +qall
-    cd $HOME/.vim/bundle/YouCompleteMe && ./install.py
+    cd "$HOME/.vim/bundle/YouCompleteMe" && ./install.py
 ;;
 
 
@@ -65,7 +70,7 @@ case "$1" in
 
     # Link font to library and clear font cache for user fonts
     if [ SYSTEM = "Darwin" ]; then
-        $DOTDIR/macOS.sh
+        "$DOTDIR/macOS.sh"
     fi
 
     git stash apply
@@ -73,24 +78,24 @@ case "$1" in
 ;;
 
 "info")
-    $DOTDIR/$SYSTEM/info.sh
+    "$DOTDIR/$SYSTEM/info.sh"
 ;;
 
 "maintenance")
-    $DOTDIR/$SYSTEM/maintenance.sh
+    "$DOTDIR/$SYSTEM/maintenance.sh"
 ;;
 
 "init")
-    $DOTDIR/$SYSTEM/init.sh
+    "$DOTDIR/$SYSTEM/init.sh"
 
-    if [ SYSTEM = "macOS"]; then
-        $DOTDIR/$SYSTEM/settings.sh
+    if [ SYSTEM = "macOS" ]; then
+        "$DOTDIR/$SYSTEM/settings.sh"
     fi
 ;;
 
 
 *)
-    cat $DOTDIR/README.md
+    cat "$DOTDIR/README.md"
 ;;
 esac
 

@@ -17,8 +17,8 @@ sh ~/.dotfiles/upgrade-dotfiles.sh
 # Cheat Sheet
 ```
 <F5>    LaTex: start/stop compile
-<F6>    Flake8 => Style Checking
-<F7>    Change color theme
+<F6>    Change color theme
+<F7>    Flake8 => Style Checking
 <F8>    Markdown Preview: start
 <F9>    Markdown Preview: stop
 

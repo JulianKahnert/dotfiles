@@ -146,10 +146,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <space> za
 " LaTex - compile with F5
 map <F5> <localleader>ll
+" Enable changing the colormap using F6
+call togglebg#map("<F6>")
 " Flake8 - Python syntax/style checking
-autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
-" Enable changing the colormap using F7
-call togglebg#map("<F7>")
+autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
 " Markdown
 nmap <silent> <F8> <Plug>MarkdownPreview
 imap <silent> <F8> <Plug>MarkdownPreview

@@ -2,8 +2,8 @@ My personal set of config files for vim & zsh
 
 # Installation
 ```
-git clone https://github.com/Janwillhaus/.dotfiles.git
-sh ~/.dotfiles/install-dotfiles.sh
+git clone https://github.com/JulianKahnert/.dotfiles.git
+sh ~/.dotfiles/dotfiles.sh install
 ```
 Also needed:
 * flake8: `conda install flake8`
@@ -29,6 +29,13 @@ sh ~/.dotfiles/upgrade-dotfiles.sh
 gcc     comment current line
 VIS: gc comment section
 ```
+
+# Skript: `dotfiles.sh`
+* `~/.dotfiles/dotfiles.sh install`
+* `~/.dotfiles/dotfiles.sh update`
+* `~/.dotfiles/dotfiles.sh info`
+* `~/.dotfiles/dotfiles.sh maintenance`
+* `~/.dotfiles/dotfiles.sh init`
 
 # ToDo
 

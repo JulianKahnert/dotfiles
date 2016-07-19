@@ -18,7 +18,7 @@ sh ~/.dotfiles/upgrade-dotfiles.sh
 ```
 <F5>    LaTex: start/stop compile
 <F6>    Change color theme
-<F7>    Flake8 toggle 
+<F7>    Syntax check toggle 
 <F8>    Markdown Preview: start
 <F9>    Markdown Preview: stop
 

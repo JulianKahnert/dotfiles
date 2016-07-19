@@ -156,8 +156,8 @@ nnoremap <space> za
 map <F5> <localleader>ll
 " Enable changing the colormap using F6
 call togglebg#map("<F6>")
-" Flake8 - Python syntax/style checking
-autocmd FileType python map <buffer> <F7> :SyntasticToggleMode<CR>
+" syntax/style checking toggle
+map <buffer> <F7> :SyntasticToggleMode<CR>
 " Markdown
 nmap <silent> <F8> <Plug>MarkdownPreview
 imap <silent> <F8> <Plug>MarkdownPreview

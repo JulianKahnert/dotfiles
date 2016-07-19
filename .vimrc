@@ -18,8 +18,6 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-scripts/tcomment'
 " syntax checking
 Plugin 'scrooloose/syntastic'
-" Python - syntax/style checking
-Plugin 'nvie/vim-flake8'
 " color theme
 Plugin 'altercation/vim-colors-solarized'
 " file browsing
@@ -44,6 +42,16 @@ au BufNewFile,BufRead *.py set tabstop=4
       \expandtab  
       \autoindent  
       \fileformat=unix
+" SYNTASTIC - PYTHON SYNTAX CHECKING
+let g:syntastic_always_populate_loc_list = 0                                                                        
+let g:syntastic_auto_loc_list = 1                                                                                   
+let g:syntastic_check_on_open = 1                                                                                   
+let g:syntastic_check_on_wq = 0                                                                                     
+let g:syntastic_auto_jump = 1                                                                                       
+let g:syntastic_loc_list_height = 3                                                                                 
+let g:syntastic_python_checkers=['flake8']                                                                          
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
+
 " FLAGGING UNNECESSARY WHITESPACE
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " SYNTAX CHECKING/HIGHLIGHTING
@@ -149,7 +157,7 @@ map <F5> <localleader>ll
 " Enable changing the colormap using F6
 call togglebg#map("<F6>")
 " Flake8 - Python syntax/style checking
-autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
+autocmd FileType python map <buffer> <F7> :SyntasticToggleMode<CR>
 " Markdown
 nmap <silent> <F8> <Plug>MarkdownPreview
 imap <silent> <F8> <Plug>MarkdownPreview

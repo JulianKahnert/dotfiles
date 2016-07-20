@@ -55,7 +55,7 @@ case "$1" in
 
 "update")
     echo "Updating Dotfiles. Stashing changes if necessary."
-    git stash
+    git reset --hard master
     if git pull --rebase --stat origin master 
     then
       vim +BundleInstall +BundleUpdate +BundleClean +qall
@@ -68,9 +68,6 @@ case "$1" in
     if [ SYSTEM = "Darwin" ]; then
         "$DOTDIR/macOS.sh"
     fi
-
-    git stash apply
-    git stash clear
 ;;
 
 "info")

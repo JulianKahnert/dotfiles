@@ -6,6 +6,7 @@ export DOTFILES=$HOME/.dotfiles
 # Basic work environment
 export DEFAULT_USER=Julian
 export EDITOR=vim
+export LANG=de_DE.UTF-8 
 
 # Set the theme
 case $(tty) in
@@ -44,8 +45,8 @@ then
 	color_foreground="white"
 	color_background="124"
 
-	ZSH_TMUX_AUTOSTART="false"
-	ZSH_TMUX_AUTOSTART_ONCE="false"
+	ZSH_TMUX_AUTOSTART="true"
+	ZSH_TMUX_AUTOSTART_ONCE="true"
 
 fi
 POWERLEVEL9K_DIR_HOME_BACKGROUND=$color_background
@@ -108,5 +109,8 @@ upgrade_dotfiles () {
     /bin/sh $DOTFILES/upgrade-dotfiles.sh
 }
 
-eval tmux ls
+if [ "$(uname)" != "Darwin" ]
+then
+    eval cat /etc/motd
+fi
 

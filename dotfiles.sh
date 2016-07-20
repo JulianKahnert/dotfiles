@@ -48,7 +48,7 @@ case "$1" in
 
     fi
 
-    vim +BundleInstall +BundleUpdate +BundleClean +qall
+    vim +BundleInstall +BundleClean +qall
     cd "$HOME/.vim/bundle/YouCompleteMe" && ./install.py
 ;;
 
@@ -58,7 +58,7 @@ case "$1" in
     git pull --rebase --stat origin master 
     git submodule update
     
-    vim +BundleInstall +BundleUpdate +BundleClean +qall
+    vim +BundleUpdate +BundleClean +qall
 
     # Link font to library and clear font cache for user fonts
     if [ SYSTEM = "Darwin" ]; then

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Change directory into the repository if called from elsewhere
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
 DOTDIR=$(pwd)
 
 if [ "$(uname)" = "Darwin" ]; then
@@ -54,15 +54,11 @@ case "$1" in
 
 
 "update")
-    echo "Updating Dotfiles. Stashing changes if necessary."
     git reset --hard master
-    if git pull --rebase --stat origin master 
-    then
-      vim +BundleInstall +BundleUpdate +BundleClean +qall
-      echo  "Your dotfiles have been updated and/or is at the current version."
-    else
-      echo "There was an error updating. Try again later?"
-    fi
+    git pull --rebase --stat origin master 
+    git submodule update
+    
+    vim +BundleInstall +BundleUpdate +BundleClean +qall
 
     # Link font to library and clear font cache for user fonts
     if [ SYSTEM = "Darwin" ]; then

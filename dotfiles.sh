@@ -30,9 +30,8 @@ case "$1" in
 
     # Link font to library and clear font cache for user fonts
     if [ SYSTEM = "macOS" ]; then
-        "$DOTDIR/brew.sh"          # install Homebrew and some important tools
-        "$DOTDIR/macOS.sh"         # change several settings in macOS
-        "$DOTDIR/macOS_install.sh" # install Apps from the MacAppStore
+        "$DOTDIR/macOS/init.sh"          # install Homebrew and some important tools
+        "$DOTDIR/macOS/settings.sh"      # change several settings in macOS
 
         ln -sf "$DOTDIR/.awesome-terminal-fonts/patched/*.sh" "$HOME/Library/Fonts/"
         ln -sf "$DOTDIR/.awesome-terminal-fonts/patched/*.ttf" "$HOME/Library/Fonts/"
@@ -62,7 +61,7 @@ case "$1" in
 
     # Link font to library and clear font cache for user fonts
     if [ SYSTEM = "Darwin" ]; then
-        "$DOTDIR/macOS.sh"
+        "$DOTDIR/macOS/settings.sh"
     fi
 ;;
 

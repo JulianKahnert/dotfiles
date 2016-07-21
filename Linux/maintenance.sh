@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo -v
+
 echo "#   SYSTEM   ##################################################"
 # Security updates only
 sudo apt-get update

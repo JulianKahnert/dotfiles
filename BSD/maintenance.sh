@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo -v
+
 echo "#   SYSTEM   ##################################################"
 # Update OS
 sudo freebsd-update fetch > /dev/null

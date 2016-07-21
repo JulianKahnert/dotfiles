@@ -4,7 +4,7 @@ sudo -v
 
 echo "#   SOFTWARE   ################################################"
 # show outdated packages
-sudo apt-get update
+sudo apt-get update > /dev/null
 sudo apt-get --dry-run upgrade
 
 echo "#   SPACE   ###################################################"

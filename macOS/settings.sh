@@ -1,11 +1,13 @@
 #!/bin/sh
 
 # special thanks to Mathias Bynens: https://mths.be/macos
+echo "Administrator password needed for setting changes:"
+
 # Ask for the administrator password upfront
 sudo -v
 
 # Change directory into the repository if called from elsewhere
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
 DOTDIR=$(pwd)
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
@@ -169,7 +171,7 @@ defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 # Show (not) icons for hard drives, servers, and removable media on the desktop
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
@@ -489,7 +491,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+hash tmutil > /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Activity Monitor                                                            #
@@ -579,6 +581,6 @@ defaults write org.gpgtools.gpgmail DefaultSecurityMethod -int 2
 ###############################################################################
 
 # Install Sublime Text settings
-cp -rf $DOTDIR/macOS/SublimeText/ ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null
+cp -rf "$DOTDIR/macOS/SublimeText/" "$HOME/Library/Application\ Support/Sublime\ Text*/Packages/User" > /dev/null
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

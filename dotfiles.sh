@@ -29,7 +29,7 @@ case "$1" in
     ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
 
     # Link font to library and clear font cache for user fonts
-    if [ SYSTEM = "macOS" ]; then
+    if [ $SYSTEM = "macOS" ]; then
         "$DOTDIR/macOS/init.sh"          # install Homebrew and some important tools
         "$DOTDIR/macOS/settings.sh"      # change several settings in macOS
 
@@ -60,7 +60,7 @@ case "$1" in
     vim +BundleUpdate +BundleClean +qall
 
     # Link font to library and clear font cache for user fonts
-    if [ SYSTEM = "macOS" ]; then
+    if [ $SYSTEM = "macOS" ]; then
         "$DOTDIR/$SYSTEM/settings.sh"
     fi
 ;;
@@ -76,7 +76,7 @@ case "$1" in
 "init")
     "$DOTDIR/$SYSTEM/init.sh"
 
-    if [ SYSTEM = "macOS" ]; then
+    if [ $SYSTEM = "macOS" ]; then
         "$DOTDIR/$SYSTEM/settings.sh"
     fi
 ;;

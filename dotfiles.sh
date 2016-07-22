@@ -60,8 +60,8 @@ case "$1" in
     vim +BundleUpdate +BundleClean +qall
 
     # Link font to library and clear font cache for user fonts
-    if [ SYSTEM = "Darwin" ]; then
-        "$DOTDIR/macOS/settings.sh"
+    if [ SYSTEM = "macOS" ]; then
+        "$DOTDIR/$SYSTEM/settings.sh"
     fi
 ;;
 

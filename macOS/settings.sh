@@ -8,7 +8,6 @@ sudo -v
 
 # Change directory into the repository if called from elsewhere
 cd "$(dirname "$0")" || exit
-DOTDIR=$(pwd)
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -179,6 +178,9 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Finder: not show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool false
 
+# Disable animations when opening a Quick Look window
+defaults write -g QLPanelAnimationDuration -float 0
+
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -337,6 +339,9 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
+
+# Disable the standard delay in rendering a Web page
+defaults write com.apple.Safari WebKitInitialTimedLayoutDelay 0.25
 
 # Privacy: don’t send search queries to Apple
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
@@ -575,12 +580,5 @@ defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault
 
 # Choose S/MIME as default security method
 defaults write org.gpgtools.gpgmail DefaultSecurityMethod -int 2
-
-###############################################################################
-# Sublime Text                                                                #
-###############################################################################
-
-# Install Sublime Text settings
-cp -rf "$DOTDIR/macOS/SublimeText/" "$HOME/Library/Application\ Support/Sublime\ Text*/Packages/User" > /dev/null
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

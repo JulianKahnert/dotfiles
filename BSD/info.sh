@@ -7,6 +7,10 @@ echo "#   SOFTWARE   ################################################"
 sudo pkg update
 sudo pkg version -l "<"
 
+echo "#   AUDITING   ################################################"
+# show software vulnerabilities
+pkg audit -F
+
 echo "#   SPACE   ###################################################"
 # show disk space
 zpool list

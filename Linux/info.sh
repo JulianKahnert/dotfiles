@@ -9,6 +9,7 @@ sudo apt-get --dry-run upgrade
 
 echo "#   SPACE   ###################################################"
 # show disk space
-df -H -T hfs,zfs,exfat,ext4
+df -H -t ext2                                                                                                       
+df -H -t ext4 
 
 echo "###############################################################"

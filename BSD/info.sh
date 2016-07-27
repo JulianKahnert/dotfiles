@@ -9,7 +9,7 @@ sudo pkg version -l "<"
 
 echo "#   AUDITING   ################################################"
 # show software vulnerabilities
-pkg audit -F
+sudo pkg audit -F
 
 echo "#   SPACE   ###################################################"
 # show disk space

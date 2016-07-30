@@ -13,7 +13,7 @@ sudo portsnap fetch update
 sudo pkg update
 
 # Upgrade ports and packages
-sudo portmaster -G -y -a
+sudo portmaster -G -y -a --no-confirm
 
 echo "#   CLEANUP   #################################################"
 sudo portmaster --check-depends

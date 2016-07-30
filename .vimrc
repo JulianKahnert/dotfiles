@@ -75,7 +75,8 @@ let g:mkdp_command_for_global = 0
 " LATEX COMPILE
 let g:vimtex_latexmk_callback = 0
 autocmd BufWrite *.tex  :VimtexCompile
-
+" allow crontab editing on macOS
+autocmd filetype crontab setlocal nobackup nowritebackup
 " UTF8 SUPPORT
 set encoding=utf-8
 " AUTO-COMPLETE

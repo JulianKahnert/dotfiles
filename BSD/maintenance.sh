@@ -21,7 +21,7 @@ sudo portmaster -y --check-port-dbdir
 sudo portmaster -s
 sudo portmaster -y --clean-distfiles
 
-sudo pkg autoremove
+sudo pkg autoremove -y
 
 echo "#   JAILS   ###################################################"
 # Upgrade portstree in jails

@@ -18,7 +18,7 @@ sudo portmaster -G -y -a --no-confirm
 echo "#   CLEANUP   #################################################"
 sudo portmaster --check-depends
 sudo portmaster -y --check-port-dbdir
-sudo portmaster -s
+sudo portmaster -y -s
 sudo portmaster -y --clean-distfiles
 
 sudo pkg autoremove -y

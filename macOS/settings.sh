@@ -332,6 +332,13 @@ defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
+# Preview                                                                     #
+###############################################################################
+
+# set default in Preview to single page view
+defaults write com.apple.Preview kPVPDFDefaultPageViewModeOption 1
+
+###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
 

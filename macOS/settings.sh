@@ -257,6 +257,20 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	OpenWith -bool true \
 	Privileges -bool true
 
+# renew default "open with" file types
+# delete old defaults
+defaults read com.apple.LaunchServices/com.apple.launchservices.secure
+# set new default => Sublime Text 3 
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.python-script;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.objective-c-source;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=net.daringfireball.markdown;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.tex;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.xml;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.shell-script;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.unix-executable;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.zsh-script;LSHandlerRoleAll=com.sublimetext.3;}'
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################

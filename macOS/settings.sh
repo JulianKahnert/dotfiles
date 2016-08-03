@@ -259,7 +259,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 
 # renew default "open with" file types
 # delete old defaults
-defaults read com.apple.LaunchServices/com.apple.launchservices.secure
+defaults delete com.apple.LaunchServices/com.apple.launchservices.secure
 # set new default => Sublime Text 3 
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.python-script;LSHandlerRoleAll=com.sublimetext.3;}'

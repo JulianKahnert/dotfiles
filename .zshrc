@@ -62,10 +62,10 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=7
+# export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"

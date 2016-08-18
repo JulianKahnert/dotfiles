@@ -1,17 +1,20 @@
 My personal set of config files for vim & zsh
 
+Requiered packages: `vim zsh tmux cmake`
+Install before `dotfiles.sh install` to avoid glitches!
+
 # Installation
 ```
 git clone https://github.com/JulianKahnert/.dotfiles.git
-sh ~/.dotfiles/dotfiles.sh install
+~/.dotfiles/dotfiles.sh install
 ```
 Also needed:
 * flake8: `conda install flake8`
 * LaTex: `brew cask install mactex`
 
-# Upgrade
+# Update dotfiles
 ```
-sh ~/.dotfiles/upgrade-dotfiles.sh
+~/.dotfiles/dotfiles.sh update
 ```
 
 # Cheat Sheet

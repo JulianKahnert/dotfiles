@@ -85,7 +85,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git osx sublime sudo Forklift tmux)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.anaconda/bin"
+export PATH="$HOME/.anaconda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 if [ "$(uname)" = "Darwin" ]
 then
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"

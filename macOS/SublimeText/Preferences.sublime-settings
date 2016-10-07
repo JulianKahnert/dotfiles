@@ -1,12 +1,22 @@
 {
-	"open_files_in_new_window": false,
-	"show_encoding": true,
-	"dictionary": "Packages/User/German.dic",
 	"default_encoding": "UTF-8",
 	"fallback_encoding": "Western (Windows 1252)",
-	"ignored_packages":
+	"show_encoding": true,
+
+	"open_files_in_new_window": false,
+	
+	"anaconda_linter_mark_style": "none",
+	"anaconda_linter_underlines": false,
+	"dictionary": "Packages/User/German.dic",
+	"added_words":
 	[
-		"Vintage"
+		"Richtcharakterisitk",
+		"Mikrofonmodell",
+		"Gewichtungsfunktion",
+		"Mikrofonkombination",
+		"Siebträgermaschine",
+		"Macchiato",
+		"erstmal"
 	],
 	"ignored_words":
 	[
@@ -18,14 +28,8 @@
 		"Mikrofonsignale",
 		"Mikrofonübertragungsfunktionen"
 	],
-	"added_words":
+	"ignored_packages":
 	[
-		"Richtcharakterisitk",
-		"Mikrofonmodell",
-		"Gewichtungsfunktion",
-		"Mikrofonkombination",
-		"Siebträgermaschine",
-		"Macchiato",
-		"erstmal"
+		"Vintage"
 	]
 }

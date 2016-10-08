@@ -5,7 +5,7 @@ Install before `dotfiles.sh install` to avoid glitches!
 
 # Installation
 ```
-git clone https://github.com/JulianKahnert/.dotfiles.git
+git clone https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install
 ```
 Also needed:

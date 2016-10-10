@@ -1,13 +1,21 @@
 {
+	// encoding
 	"default_encoding": "UTF-8",
 	"fallback_encoding": "Western (Windows 1252)",
 	"show_encoding": true,
-	"translate_tabs_to_spaces": true,
 
+	// space(s) handling
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+
+	// workflow
 	"open_files_in_new_window": false,
-	
+
+	// appearance
 	"anaconda_linter_mark_style": "none",
 	"anaconda_linter_underlines": false,
+
+	// spell checking
 	"dictionary": "Packages/User/German.dic",
 	"added_words":
 	[
@@ -28,9 +36,5 @@
 		"Mikrofonpositionen",
 		"Mikrofonsignale",
 		"Mikrofonübertragungsfunktionen"
-	],
-	"ignored_packages":
-	[
-		"Vintage"
 	]
 }

@@ -2,6 +2,7 @@
 	"default_encoding": "UTF-8",
 	"fallback_encoding": "Western (Windows 1252)",
 	"show_encoding": true,
+	"translate_tabs_to_spaces": true,
 
 	"open_files_in_new_window": false,
 	

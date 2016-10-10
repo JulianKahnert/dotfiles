@@ -8,6 +8,7 @@ sudo -v
 
 # Change directory into the repository if called from elsewhere
 cd "$(dirname "$0")" || exit
+CURDIR=$(pwd)
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -557,5 +558,12 @@ defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault
 
 # Choose S/MIME as default security method
 defaults write org.gpgtools.gpgmail DefaultSecurityMethod -int 2
+
+###############################################################################
+# SublimeText                                                                 #
+###############################################################################
+
+echo "Update Sublime Text 3 settings."
+cp -rf "$CURDIR/SublimeText/"   "$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

@@ -26,30 +26,26 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'iamcco/markdown-preview.vim'
 " bracket auto closing
 Plugin 'itmammoth/doorboy.vim'
-" LaTex plugin
-Plugin 'lervag/vimtex'
-" code-completion engine
-Bundle 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 highlight BadWhitespace ctermbg=red guibg=red
 " PYTHON INDENTATION
-au BufNewFile,BufRead *.py set tabstop=4 
-      \softtabstop=4 
-      \shiftwidth=4  
-      \textwidth=79  
-      \expandtab  
-      \autoindent  
+au BufNewFile,BufRead *.py set tabstop=4
+      \softtabstop=4
+      \shiftwidth=4
+      \textwidth=79
+      \expandtab
+      \autoindent
       \fileformat=unix
 " SYNTASTIC - PYTHON SYNTAX CHECKING
-let g:syntastic_always_populate_loc_list = 0                                                                        
-let g:syntastic_auto_loc_list = 1                                                                                   
-let g:syntastic_check_on_open = 1                                                                                   
-let g:syntastic_check_on_wq = 0                                                                                     
-let g:syntastic_auto_jump = 1                                                                                       
-let g:syntastic_loc_list_height = 3                                                                                 
-let g:syntastic_python_checkers=['flake8']                                                                          
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 1
+let g:syntastic_loc_list_height = 3
+let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E225'
 
 " FLAGGING UNNECESSARY WHITESPACE

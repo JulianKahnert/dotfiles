@@ -1,0 +1,11 @@
+"*":
+  core:
+    telemetryConsent: "no"
+  editor:
+    fontSize: 12
+  "exception-reporting":
+    userId: "63aff982-a3bd-b4e8-17ff-fb49af5b9aa7"
+  "linter-python-pep8":
+    pep8DirToExecutable: "/usr/local/bin/"
+  welcome:
+    showOnStartup: false

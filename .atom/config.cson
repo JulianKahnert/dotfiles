@@ -2,9 +2,10 @@
   core:
     disabledPackages: [
       "metrics"
+      "exception-reporting"
     ]
     fileEncoding: "utf8"
-    openEmptyEditorOnStart: false
+    openEmptyEditorOnStart: true
     telemetryConsent: "no"
   editor:
     fontSize: 12

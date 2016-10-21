@@ -1,11 +1,11 @@
 "*":
   core:
     disabledPackages: [
-      "metrics"
       "exception-reporting"
+      "metrics"
     ]
     fileEncoding: "utf8"
-    openEmptyEditorOnStart: true
+    openEmptyEditorOnStart: false
     telemetryConsent: "no"
   editor:
     fontSize: 12

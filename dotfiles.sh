@@ -24,6 +24,7 @@ if [ "install" = "$1" ]; then
     ln -sf "$DOTDIR/.vim"       	"$HOME"
     ln -sf "$DOTDIR/.vimrc"			"$HOME"
     ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
+    ln -sf "$DOTDIR/.atom"          "$HOME"
 
     # Link font to library and clear font cache for user fonts
     if [ $SYSTEM = "macOS" ]; then
@@ -47,7 +48,7 @@ if [ "install" = "$1" ]; then
 
 elif [ "update" = "$1" ]; then
     git reset --hard master
-    git pull --rebase --stat origin master 
+    git pull --rebase --stat origin master
     git submodule update
     # update vim
     if hash vim 2>/dev/null; then

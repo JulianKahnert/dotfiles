@@ -10,3 +10,12 @@
 .vim/bundle/vim-colors-solarized/
 .vim/bundle/vim-flake8/
 .vim/bundle/vimtex/
+.atom/blob-store
+.atom/compile-cache
+.atom/dev
+.atom/storage
+.atom/.node-gyp
+.atom/.npm
+.atom/.apm
+.atom/packages/
+.atom/atom-shell/

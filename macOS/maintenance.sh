@@ -16,7 +16,8 @@ echo "---------------------------------------------------------------"
 mas upgrade
 
 echo "#   PYTHON PACKAGES   #########################################"
-pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install --upgrade > /dev/null
+# update all python3 packages
+pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install --upgrade --user > /dev/null
 
 echo "#   TIME MACHINE BACKUP   #####################################"
 # start Time Machine backup

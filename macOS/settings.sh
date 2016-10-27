@@ -105,7 +105,7 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClic
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Enable “natural” (Lion-style) scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true 
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -179,8 +179,8 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
-# Finder: not show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool false
+# Finder: show hidden files by default
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Disable animations when opening a Quick Look window
 defaults write -g QLPanelAnimationDuration -float 0
@@ -264,7 +264,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # renew default "open with" file types
 # delete old defaults
 # defaults delete com.apple.LaunchServices/com.apple.launchservices.secure
-# set new default => Sublime Text 3 
+# set new default => Sublime Text 3
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.python-script;LSHandlerRoleAll=com.sublimetext.3;}'
 defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.objective-c-source;LSHandlerRoleAll=com.sublimetext.3;}'

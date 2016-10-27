@@ -15,6 +15,9 @@ echo "---------------------------------------------------------------"
 # keep MacAppStore Apps up-to-date
 mas upgrade
 
+echo "#   PYTHON PACKAGES   #########################################"
+pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install --upgrade > /dev/null
+
 echo "#   TIME MACHINE BACKUP   #####################################"
 # start Time Machine backup
 #tmutil startbackup

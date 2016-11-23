@@ -6,6 +6,8 @@ echo "Administrator password needed for setting changes:"
 # Ask for the administrator password upfront
 sudo -v
 
+echo "Start to change the settings ..."
+
 # Change directory into the repository if called from elsewhere
 cd "$(dirname "$0")" || exit
 CURDIR=$(pwd)

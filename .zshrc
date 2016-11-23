@@ -85,7 +85,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git osx sublime sudo Forklift tmux)
 
 # User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="$HOME/Library/Python/3.5/bin:$PATH"
 # export PATH="$HOME/.anaconda/bin:$PATH"
 if [ "$(uname)" = "Darwin" ]
 then

@@ -4,9 +4,9 @@ ZSH_CUSTOM=$HOME/.zsh/custom
 export DOTFILES=$HOME/.dotfiles
 
 # Basic work environment
-export DEFAULT_USER=Julian
+export DEFAULT_USER=juliankahnert
 export EDITOR=vim
-export LANG=de_DE.UTF-8 
+export LANG=de_DE.UTF-8
 
 # Set the theme
 case $(tty) in
@@ -82,16 +82,26 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx sublime sudo Forklift tmux)
+plugins=(git virtualenvwrapper osx sudo tmux)
+
+VIRTUALENVWRAPPER_PYTHON=$(which python3)
 
 # User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-export PATH="$HOME/Library/Python/3.5/bin:$PATH"
 # export PATH="$HOME/.anaconda/bin:$PATH"
 if [ "$(uname)" = "Darwin" ]
 then
+    # python pip module path (--user)
+    export PATH="$HOME/Library/Python/3.5/bin:$PATH"
+
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
     export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
+
+elif [ "$(uname)" = "Linux" ]
+then
+    # python pip module path (--user)
+    export PATH="$HOME/.local/bin:$PATH"
+
 fi
 source $ZSH/oh-my-zsh.sh
 

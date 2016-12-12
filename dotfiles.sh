@@ -42,7 +42,6 @@ if [ "install" = "$1" ]; then
     # Install vim packages
     if hash vim 2>/dev/null; then
         vim +BundleInstall +BundleClean +qall
-        cd "$HOME/.vim/bundle/YouCompleteMe" && ./install.py
     fi
 
 

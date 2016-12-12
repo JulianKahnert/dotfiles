@@ -1,6 +1,6 @@
 My personal set of config files for vim & zsh
 
-Requiered packages: `vim zsh tmux cmake`
+Requiered packages: `vim zsh tmux`
 Install before `dotfiles.sh install` to avoid glitches!
 
 # Installation
@@ -21,7 +21,7 @@ Also needed:
 ```
 <F5>    LaTex: start/stop compile
 <F6>    Change color theme
-<F7>    Syntax check toggle 
+<F7>    Syntax check toggle
 <F8>    Markdown Preview: start
 <F9>    Markdown Preview: stop
 

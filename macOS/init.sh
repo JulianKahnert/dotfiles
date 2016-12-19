@@ -57,6 +57,10 @@ brew cask install sublime-text
 brew cask install things
 brew cask install tunnelblick
 
+# Install fonts
+brew tap caskroom/fonts
+brew cask install font-source-code-pro
+
 # Link installed apps.
 brew linkapps
 

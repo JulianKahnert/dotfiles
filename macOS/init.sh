@@ -51,8 +51,11 @@ brew install sox
 
 # Install caskroom apps.
 brew tap caskroom/versions
-brew cask install sublime-text
 brew cask install mactex
+brew cask install sourcetree
+brew cask install sublime-text
+brew cask install things
+brew cask install tunnelblick
 
 # Link installed apps.
 brew linkapps

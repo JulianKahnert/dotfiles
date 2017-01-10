@@ -31,8 +31,14 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
+'.platform-darwin':
+  'cmd-b': 'latex:build'
+
 'atom-text-editor':
   'cmd-t': 'application:new-file'
+  'ctrl-c f': 'fuzzy-finder:toggle-file-finder'
+  'alt-x': 'command-palette:toggle'
+  'f6': 'spell-check:toggle'
 
 'atom-workspace atom-text-editor:not([mini])':
   'cmd-r': 'editor:toggle-line-comments'

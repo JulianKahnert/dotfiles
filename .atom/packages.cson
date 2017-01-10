@@ -2,6 +2,8 @@ packages: [
   "autocomplete-python"
   "fold-functions"
   "language-ini"
+  "language-latex"
+  "latex"
   "linter"
   "linter-pep8"
   "linter-python-pep8"

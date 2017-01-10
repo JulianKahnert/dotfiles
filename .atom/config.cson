@@ -1,11 +1,16 @@
 "*":
+  "autocomplete-python":
+    useKite: false
   core:
     disabledPackages: [
       "exception-reporting"
       "metrics"
     ]
     fileEncoding: "utf8"
-    openEmptyEditorOnStart: false
+    openEmptyEditorOnStart: true
+    packagesWithKeymapsDisabled: [
+      "spell-check"
+    ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
@@ -31,6 +36,9 @@
       "Python"
     ]
     skipAutofoldWhenOnlyOneFunction: true
+  "fuzzy-finder":
+    preserveLastSearch: true
+    searchAllPanes: true
   linter:
     errorPanelHeight: 69
   "linter-python-pep8":
@@ -42,6 +50,13 @@
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  "spell-check":
+    addKnownWords: true
+    locales: [
+      "de-DE"
+      "en-US"
+    ]
+    useLocales: false
   welcome:
     showOnStartup: false
   whitespace:

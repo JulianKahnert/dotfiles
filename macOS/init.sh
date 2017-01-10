@@ -51,6 +51,7 @@ brew install sox
 
 # Install caskroom apps.
 brew tap caskroom/versions
+brew cask install etcher
 brew cask install mactex
 brew cask install sourcetree
 brew cask install sublime-text

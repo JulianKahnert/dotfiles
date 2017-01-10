@@ -7,14 +7,41 @@
     fileEncoding: "utf8"
     openEmptyEditorOnStart: false
     telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "zenburn"
+    ]
   editor:
     fontSize: 12
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: false
+    softWrap: true
+    softWrapHangingIndent: 4
     tabLength: 4
     tabType: "soft"
+    themes: [
+      "one-dark-ui"
+      "zenburn"
+    ]
   "exception-reporting":
     userId: "63aff982-a3bd-b4e8-17ff-fb49af5b9aa7"
+  "fold-functions":
+    autofoldGrammars: [
+      "Python"
+    ]
+    skipAutofoldWhenOnlyOneFunction: true
+  linter:
+    errorPanelHeight: 69
   "linter-python-pep8":
     pep8DirToExecutable: "/usr/local/bin/"
+  "one-light-ui":
+    fontSize: 10
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   welcome:
     showOnStartup: false
   whitespace:

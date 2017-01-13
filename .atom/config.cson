@@ -10,6 +10,7 @@
     openEmptyEditorOnStart: true
     packagesWithKeymapsDisabled: [
       "spell-check"
+      "markdown-preview"
     ]
     telemetryConsent: "no"
     themes: [

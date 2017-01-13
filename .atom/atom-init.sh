@@ -9,6 +9,7 @@ brew cask install atom
 # install packages
 apm install autocomplete-python
 apm install fold-functions
+apm install git-plus
 apm install language-ini
 apm install language-latex
 apm install latex

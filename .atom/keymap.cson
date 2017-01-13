@@ -33,12 +33,11 @@
 
 'atom-text-editor':
   'cmd-t': 'application:new-file'
+  'cmd-r': 'editor:toggle-line-comments'
   'ctrl-c f': 'fuzzy-finder:toggle-file-finder'
+  'ctrl-c t': 'tree-view:toggle'
   'alt-x': 'command-palette:toggle'
   'f6': 'spell-check:toggle'
-
-'atom-workspace atom-text-editor:not([mini])':
-  'cmd-r': 'editor:toggle-line-comments'
 
 # Build commands
 '.platform-darwin':

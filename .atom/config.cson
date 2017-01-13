@@ -40,6 +40,8 @@
   "fuzzy-finder":
     preserveLastSearch: true
     searchAllPanes: true
+  "git-plus":
+    general: {}
   linter:
     errorPanelHeight: 69
   "linter-python-pep8":

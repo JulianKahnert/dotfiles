@@ -19,4 +19,5 @@ apm install linter-python-pep8
 apm install multi-cursor
 apm install package-sync
 apm install python-indent
-apm install zenburn
+apm install synced-sidebar
+apm install tomorrow-night-eighties-syntax

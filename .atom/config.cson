@@ -11,11 +11,12 @@
     packagesWithKeymapsDisabled: [
       "spell-check"
       "markdown-preview"
+      "fuzzy-finder"
     ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "zenburn"
+      "tomorrow-night-eighties-syntax"
     ]
   editor:
     fontSize: 12
@@ -45,7 +46,13 @@
   linter:
     errorPanelHeight: 69
   "linter-python-pep8":
+    ignoreErrorCodes: "E501"
     pep8DirToExecutable: "/usr/local/bin/"
+  "markdown-preview":
+    useGitHubStyle: true
+  "one-dark-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
   "one-light-ui":
     fontSize: 10
     layoutMode: "Compact"
@@ -60,6 +67,11 @@
       "en-US"
     ]
     useLocales: false
+  tabs:
+    enableVcsColoring: true
+  "tabs-to-spaces":
+    onSave: "untabify"
+  "tree-view": {}
   welcome:
     showOnStartup: false
   whitespace:

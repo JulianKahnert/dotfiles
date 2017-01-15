@@ -16,6 +16,7 @@ apm install latex
 apm install linter
 apm install linter-pep8
 apm install linter-python-pep8
+apm install markdown-scroll-sync
 apm install multi-cursor
 apm install package-sync
 apm install python-indent

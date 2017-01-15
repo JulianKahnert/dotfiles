@@ -9,7 +9,7 @@ git clone https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install
 ```
 Also needed:
-* flake8: `conda install flake8`
+* flake8: `pip install --user flake8`
 * LaTex: `brew cask install mactex`
 
 # Update dotfiles

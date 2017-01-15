@@ -1,20 +1,77 @@
 "*":
+  "autocomplete-python":
+    useKite: false
   core:
     disabledPackages: [
       "exception-reporting"
       "metrics"
     ]
     fileEncoding: "utf8"
-    openEmptyEditorOnStart: false
+    openEmptyEditorOnStart: true
+    packagesWithKeymapsDisabled: [
+      "spell-check"
+      "markdown-preview"
+      "fuzzy-finder"
+    ]
     telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "tomorrow-night-eighties-syntax"
+    ]
   editor:
     fontSize: 12
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: false
+    softWrap: true
+    softWrapHangingIndent: 4
     tabLength: 4
     tabType: "soft"
+    themes: [
+      "one-dark-ui"
+      "zenburn"
+    ]
   "exception-reporting":
     userId: "63aff982-a3bd-b4e8-17ff-fb49af5b9aa7"
+  "fold-functions":
+    autofoldGrammars: [
+      "Python"
+    ]
+    skipAutofoldWhenOnlyOneFunction: true
+  "fuzzy-finder":
+    preserveLastSearch: true
+    searchAllPanes: true
+  "git-plus":
+    general: {}
+  linter:
+    errorPanelHeight: 69
   "linter-python-pep8":
+    ignoreErrorCodes: "E501"
     pep8DirToExecutable: "/usr/local/bin/"
+  "markdown-preview":
+    useGitHubStyle: true
+  "one-dark-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
+  "one-light-ui":
+    fontSize: 10
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
+  "spell-check":
+    addKnownWords: true
+    locales: [
+      "de-DE"
+      "en-US"
+    ]
+    useLocales: false
+  tabs:
+    enableVcsColoring: true
+  "tabs-to-spaces":
+    onSave: "untabify"
+  "tree-view": {}
   welcome:
     showOnStartup: false
   whitespace:

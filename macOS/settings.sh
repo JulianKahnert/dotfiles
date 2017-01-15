@@ -265,17 +265,17 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 
 # renew default "open with" file types
 # delete old defaults
-# defaults delete com.apple.LaunchServices/com.apple.launchservices.secure
-# set new default => Sublime Text 3
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.python-script;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.objective-c-source;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=net.daringfireball.markdown;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.tex;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.xml;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.shell-script;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.unix-executable;LSHandlerRoleAll=com.sublimetext.3;}'
-defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.zsh-script;LSHandlerRoleAll=com.sublimetext.3;}'
+defaults delete com.apple.LaunchServices/com.apple.launchservices.secure
+# set new default => Atom
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.python-script;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.objective-c-source;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=net.daringfireball.markdown;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.tex;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.xml;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.shell-script;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.unix-executable;LSHandlerRoleAll=com.github.atom;}'
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add '{LSHandlerContentType=public.zsh-script;LSHandlerRoleAll=com.github.atom;}'
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -560,12 +560,5 @@ defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault
 
 # Choose S/MIME as default security method
 defaults write org.gpgtools.gpgmail DefaultSecurityMethod -int 2
-
-###############################################################################
-# SublimeText                                                                 #
-###############################################################################
-
-echo "Update Sublime Text 3 settings."
-cp -rf "$CURDIR/SublimeText/"   "$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

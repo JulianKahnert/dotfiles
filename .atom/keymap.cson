@@ -33,6 +33,13 @@
 
 'atom-text-editor':
   'cmd-t': 'application:new-file'
-
-'atom-workspace atom-text-editor:not([mini])':
   'cmd-r': 'editor:toggle-line-comments'
+  'ctrl-c f': 'fuzzy-finder:toggle-file-finder'
+  'ctrl-c t': 'tree-view:toggle'
+  'alt-x': 'command-palette:toggle'
+  'f6': 'spell-check:toggle'
+
+# Build commands
+'.platform-darwin':
+  'cmd-b': 'latex:build'
+  'ctrl-shift-M': 'markdown-preview:toggle'

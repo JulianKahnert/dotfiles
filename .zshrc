@@ -5,7 +5,7 @@ export DOTFILES=$HOME/.dotfiles
 
 # Basic work environment
 export DEFAULT_USER=juliankahnert
-export EDITOR=vim
+export EDITOR=atom
 export LANG=de_DE.UTF-8
 
 # Set the theme

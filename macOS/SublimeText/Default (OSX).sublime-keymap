@@ -1,6 +1,0 @@
-[
-	{ "keys": ["super+r"], "command": "toggle_comment", "args": { "block": false } },
-	{ "keys": ["super+r"], "command": "toggle_comment", "args": { "block": true } },
-	{ "keys": ["super+t"], "command": "new_file" },
-	{ "keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser", "parser":"markdown"} }
-]

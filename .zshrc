@@ -92,7 +92,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 if [ "$(uname)" = "Darwin" ]
 then
     # python pip module path (--user)
-    export PATH="$HOME/Library/Python/3.5/bin:$PATH"
     export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"

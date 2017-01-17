@@ -1,6 +1,8 @@
 "*":
   "autocomplete-python":
+    pythonPaths: "python3"
     useKite: false
+    useSnippets: "required"
   core:
     disabledPackages: [
       "exception-reporting"
@@ -12,6 +14,7 @@
       "spell-check"
       "markdown-preview"
       "fuzzy-finder"
+      "autocomplete-python"
     ]
     telemetryConsent: "no"
     themes: [
@@ -45,6 +48,10 @@
     general: {}
   linter:
     errorPanelHeight: 69
+  "linter-pep8":
+    ignoreErrorCodes: [
+      "E501"
+    ]
   "linter-python-pep8":
     ignoreErrorCodes: "E501"
     pep8DirToExecutable: "/usr/local/bin/"

@@ -12,7 +12,7 @@ git clone https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 Also needed:
 * Python: `pip install --user flake8 virtualenvwrapper`
 * LaTex: `brew cask install mactex`
-* Search Tools: `brew install ag fzf`
+* Search Tools: `brew install the_silver_searcher fzf`
 
 # Update dotfiles
 ```

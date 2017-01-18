@@ -35,13 +35,13 @@
   'alt-x': 'command-palette:toggle'
   'f6': 'spell-check:toggle'
 
-# Build commands
 '.platform-darwin':
   'cmd-b': 'latex:build'
   'cmd-t': 'application:new-file'
   'cmd-r': 'editor:toggle-line-comments'
   'ctrl-c f': 'advanced-open-file:toggle'
   'ctrl-c n': 'tree-view:toggle'
+  'ctrl-c s': 'symbols-view:toggle-file-symbols'
   'ctrl-c t': 'todo-show:find-in-workspace'
   'ctrl-shift-M': 'markdown-preview:toggle'
 

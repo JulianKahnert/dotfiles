@@ -5,6 +5,9 @@
     pythonPaths: "/usr/local/bin/python3"
     useKite: false
     useSnippets: "required"
+  autosave: {}
+  "command-palette":
+    preserveLastSearch: true
   core:
     disabledPackages: [
       "exception-reporting"
@@ -12,6 +15,17 @@
       "fuzzy-finder"
     ]
     fileEncoding: "utf8"
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "__pycache__"
+      ".ipynb_checkpoints"
+      ".venv"
+    ]
     openEmptyEditorOnStart: true
     packagesWithKeymapsDisabled: [
       "spell-check"
@@ -21,12 +35,22 @@
       "highlight-selected"
       "advanced-open-file"
       "todo-show"
+      "symbols-view"
+      "autocomplete-plus"
+      "bracket-matcher"
+      "command-palette"
+      "git-diff"
+      "grammar-selector"
+      "notifications"
+      "open-on-github"
+      "tree-view"
     ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "tomorrow-night-eighties-syntax"
     ]
+    useCustomTitleBar: true
   editor:
     fontSize: 12
     scrollPastEnd: true
@@ -82,19 +106,20 @@
     ]
     useLocales: false
   tabs:
+    addNewTabsAtEnd: true
     enableVcsColoring: true
   "tabs-to-spaces":
     onSave: "untabify"
   "todo-show":
-    openListInDirection: "down"
-    saveOutputAs: "Table"
     showInTable: [
       "Text"
       "Path"
     ]
     sortBy: "Type"
     statusBarIndicator: true
-  "tree-view": {}
+  "tree-view":
+    autoReveal: true
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false
   whitespace:

@@ -75,17 +75,13 @@
     preserveLastSearch: true
     searchAllPanes: true
   "git-plus":
-    general: {}
+    general:
+      _analyticsUserId: "f78560ef-fe54-4b11-b1a1-5653a8c2dee4"
   "highlight-selected": {}
-  linter:
-    errorPanelHeight: 69
   "linter-pep8":
     ignoreErrorCodes: [
       "E501"
     ]
-  "linter-python-pep8":
-    ignoreErrorCodes: "E501"
-    pep8DirToExecutable: "/usr/local/bin/"
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":

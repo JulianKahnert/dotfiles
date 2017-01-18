@@ -43,6 +43,7 @@
   'ctrl-c n': 'tree-view:toggle'
   'ctrl-c s': 'symbols-view:toggle-file-symbols'
   'ctrl-c t': 'todo-show:find-in-workspace'
+  'ctrl-c g': 'go-to-line:toggle'
   'ctrl-shift-M': 'markdown-preview:toggle'
 
 '.advanced-open-file atom-text-editor':

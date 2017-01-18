@@ -74,10 +74,13 @@
   "fuzzy-finder":
     preserveLastSearch: true
     searchAllPanes: true
+  "git-diff": {}
   "git-plus":
     general:
       _analyticsUserId: "f78560ef-fe54-4b11-b1a1-5653a8c2dee4"
   "highlight-selected": {}
+  linter:
+    errorPanelHeight: 24
   "linter-pep8":
     ignoreErrorCodes: [
       "E501"
@@ -94,6 +97,8 @@
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  "python-indent":
+    hangingIndentTabs: 2
   "spell-check":
     addKnownWords: true
     locales: [

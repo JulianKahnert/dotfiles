@@ -10,7 +10,7 @@ git clone https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install
 ```
 Also needed:
-* Python: `pip install --user flake8 virtualenvwrapper`
+* Python: `pip install flake8 pep8 virtualenvwrapper`
 * LaTex: `brew cask install mactex`
 * Search Tools: `brew install the_silver_searcher fzf`
 

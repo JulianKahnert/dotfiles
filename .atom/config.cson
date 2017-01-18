@@ -1,6 +1,6 @@
 "*":
   "autocomplete-python":
-    pythonPaths: "python3"
+    pythonPaths: "/usr/local/bin/python3"
     useKite: false
     useSnippets: "required"
   core:
@@ -15,6 +15,7 @@
       "markdown-preview"
       "fuzzy-finder"
       "autocomplete-python"
+      "highlight-selected"
     ]
     telemetryConsent: "no"
     themes: [
@@ -46,6 +47,7 @@
     searchAllPanes: true
   "git-plus":
     general: {}
+  "highlight-selected": {}
   linter:
     errorPanelHeight: 69
   "linter-pep8":

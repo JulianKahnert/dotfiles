@@ -1,4 +1,6 @@
 "*":
+  "advanced-open-file":
+    fuzzyMatch: true
   "autocomplete-python":
     pythonPaths: "/usr/local/bin/python3"
     useKite: false
@@ -7,6 +9,7 @@
     disabledPackages: [
       "exception-reporting"
       "metrics"
+      "fuzzy-finder"
     ]
     fileEncoding: "utf8"
     openEmptyEditorOnStart: true
@@ -16,6 +19,8 @@
       "fuzzy-finder"
       "autocomplete-python"
       "highlight-selected"
+      "advanced-open-file"
+      "todo-show"
     ]
     telemetryConsent: "no"
     themes: [
@@ -80,6 +85,15 @@
     enableVcsColoring: true
   "tabs-to-spaces":
     onSave: "untabify"
+  "todo-show":
+    openListInDirection: "down"
+    saveOutputAs: "Table"
+    showInTable: [
+      "Text"
+      "Path"
+    ]
+    sortBy: "Type"
+    statusBarIndicator: true
   "tree-view": {}
   welcome:
     showOnStartup: false

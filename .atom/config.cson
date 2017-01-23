@@ -103,11 +103,26 @@
     hangingIndentTabs: 2
   "spell-check":
     addKnownWords: true
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.tex.latex"
+    ]
+    knownWords: [
+      "Spracherkenner"
+      "Spracherkennern"
+      "audiologisch"
+      "Modulationsfrequenzen"
+      "Mittenfrequenz"
+      "Imaginärteil"
+      "Imaginärteil"
+    ]
     locales: [
       "de-DE"
-      "en-US"
     ]
-    useLocales: false
   tabs:
     addNewTabsAtEnd: true
     enableVcsColoring: true

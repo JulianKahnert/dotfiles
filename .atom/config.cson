@@ -45,6 +45,7 @@
       "open-on-github"
       "tree-view"
       "git-plus"
+      "linter"
     ]
     telemetryConsent: "no"
     themes: [

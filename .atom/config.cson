@@ -119,6 +119,8 @@
       "Mittenfrequenz"
       "Imaginärteil"
       "Imaginärteil"
+      "Mittenfrequenzen"
+      "randomisiert"
     ]
     locales: [
       "de-DE"
@@ -130,10 +132,11 @@
     onSave: "untabify"
   "todo-show":
     showInTable: [
+      "File"
+      "Line"
       "Text"
-      "Path"
     ]
-    sortBy: "Type"
+    sortBy: "File"
     statusBarIndicator: true
   "tree-view":
     autoReveal: true

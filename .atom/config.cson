@@ -1,23 +1,58 @@
 "*":
+  "advanced-open-file":
+    fuzzyMatch: true
   "autocomplete-python":
+    pythonPaths: "/usr/local/bin/python3"
     useKite: false
+    useSnippets: "required"
+  autosave: {}
+  "command-palette":
+    preserveLastSearch: true
   core:
     disabledPackages: [
       "exception-reporting"
       "metrics"
+      "fuzzy-finder"
     ]
     fileEncoding: "utf8"
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "__pycache__"
+      ".ipynb_checkpoints"
+      ".venv"
+    ]
     openEmptyEditorOnStart: true
     packagesWithKeymapsDisabled: [
       "spell-check"
       "markdown-preview"
       "fuzzy-finder"
+      "autocomplete-python"
+      "highlight-selected"
+      "advanced-open-file"
+      "todo-show"
+      "symbols-view"
+      "autocomplete-plus"
+      "bracket-matcher"
+      "command-palette"
+      "git-diff"
+      "grammar-selector"
+      "notifications"
+      "open-on-github"
+      "tree-view"
+      "git-plus"
+      "linter"
     ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "tomorrow-night-eighties-syntax"
     ]
+    useCustomTitleBar: true
   editor:
     fontSize: 12
     scrollPastEnd: true
@@ -41,13 +76,17 @@
   "fuzzy-finder":
     preserveLastSearch: true
     searchAllPanes: true
+  "git-diff": {}
   "git-plus":
-    general: {}
+    general:
+      analytics: false
+  "highlight-selected": {}
   linter:
-    errorPanelHeight: 69
-  "linter-python-pep8":
-    ignoreErrorCodes: "E501"
-    pep8DirToExecutable: "/usr/local/bin/"
+    errorPanelHeight: 24
+  "linter-pep8":
+    ignoreErrorCodes: [
+      "E501"
+    ]
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":
@@ -60,18 +99,48 @@
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  "python-indent":
+    hangingIndentTabs: 2
   "spell-check":
     addKnownWords: true
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.tex.latex"
+    ]
+    knownWords: [
+      "Spracherkenner"
+      "Spracherkennern"
+      "audiologisch"
+      "Modulationsfrequenzen"
+      "Mittenfrequenz"
+      "Imaginärteil"
+      "Imaginärteil"
+      "Mittenfrequenzen"
+      "randomisiert"
+    ]
     locales: [
       "de-DE"
-      "en-US"
     ]
-    useLocales: false
   tabs:
+    addNewTabsAtEnd: true
     enableVcsColoring: true
   "tabs-to-spaces":
     onSave: "untabify"
-  "tree-view": {}
+  "todo-show":
+    showInTable: [
+      "File"
+      "Line"
+      "Text"
+    ]
+    sortBy: "File"
+    statusBarIndicator: true
+  "tree-view":
+    autoReveal: true
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false
   whitespace:

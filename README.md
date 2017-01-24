@@ -4,13 +4,15 @@ Requiered packages: `vim zsh tmux`
 Install before `dotfiles.sh install` to avoid glitches!
 
 # Installation
+macOS: choose the the path to zsh in Terminal.app preferences
 ```
 git clone https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install
 ```
 Also needed:
-* flake8: `pip install --user flake8`
+* Python: `pip install flake8 pep8 virtualenvwrapper`
 * LaTex: `brew cask install mactex`
+* Search Tools: `brew install the_silver_searcher fzf`
 
 # Update dotfiles
 ```
@@ -18,6 +20,13 @@ Also needed:
 ```
 
 # Cheat Sheet
+## Terminal
+```
+CTRL R      command-searching
+CTRL T      path-searching
+```
+
+## VIM
 ```
 <F5>    LaTex: start/stop compile
 <F6>    Change color theme
@@ -45,3 +54,20 @@ VIS: gc comment section
 * Makefile
 * `init.sh for Linux and FreeBSD
 * write Help for dotfiles.sh
+
+# Searching
+
+## [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
+```
+ag PATTERN /PATH/TO/
+ag -i PATTERN /PATH/TO/                             # case insensitive
+ag --hidden PATTERN /PATH/TO/                       # also search hidden files
+ag --hidden --ignore .git -g "" PATTERN /PATH/TO/   # also search hidden files,
+                                                    # but not .git folders
+```
+
+## [command-line fuzzy finder](https://github.com/junegunn/fzf)
+```
+CTRL R      commands
+CTRL T      paths
+```

@@ -20,15 +20,8 @@ brew install coreutils
 ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install Z shell.
-# Note: don’t forget to add `/usr/local/bin/zsh` to `/etc/shells` before
-# running `chsh`.
+# Note: In Terminal.app set "Open shells with: /usr/local/bin/zsh"
 brew install zsh
-
-# Switch to using brew-installed bash as default shell
-if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
-  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
-  sudo chsh -s /usr/local/bin/zsh $USER;
-fi;
 
 # Install more recent versions of some macOS tools.
 brew install vim --override-system-vi

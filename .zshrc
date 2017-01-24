@@ -5,7 +5,7 @@ export DOTFILES=$HOME/.dotfiles
 
 # Basic work environment
 export DEFAULT_USER=juliankahnert
-export EDITOR=atom
+export EDITOR=vim
 export LANG=de_DE.UTF-8
 
 # Set the theme
@@ -26,27 +26,27 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND="white"
 # change background color for each system
 if [ "$(uname)" = "Darwin" ]
 then
-	color_foreground="white"
-	color_background="black"
+    color_foreground="white"
+    color_background="black"
 
-	ZSH_TMUX_AUTOSTART="false"
-	ZSH_TMUX_AUTOSTART_ONCE="false"
+    ZSH_TMUX_AUTOSTART="false"
+    ZSH_TMUX_AUTOSTART_ONCE="false"
 
 elif [ "$(uname)" = "Linux" ]
 then
-	color_foreground="white"
-	color_background="089"
+    color_foreground="white"
+    color_background="089"
 
-	ZSH_TMUX_AUTOSTART="true"
-	ZSH_TMUX_AUTOSTART_ONCE="true"
+    ZSH_TMUX_AUTOSTART="true"
+    ZSH_TMUX_AUTOSTART_ONCE="true"
 
 elif [ "$(uname)" = "FreeBSD" ]
 then
-	color_foreground="white"
-	color_background="124"
+    color_foreground="white"
+    color_background="124"
 
-	ZSH_TMUX_AUTOSTART="true"
-	ZSH_TMUX_AUTOSTART_ONCE="true"
+    ZSH_TMUX_AUTOSTART="true"
+    ZSH_TMUX_AUTOSTART_ONCE="true"
 
 fi
 POWERLEVEL9K_DIR_HOME_BACKGROUND=$color_background
@@ -92,7 +92,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 if [ "$(uname)" = "Darwin" ]
 then
     # python pip module path (--user)
-    export PATH="$HOME/Library/Python/3.5/bin:$PATH"
+    export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
     export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
@@ -126,3 +126,7 @@ then
     eval cat /etc/motd
 fi
 
+# user fuzzy finder "fzf"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# don't exclude hidden files, but .git folders
+export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'

@@ -32,14 +32,19 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
 'atom-text-editor':
-  'cmd-t': 'application:new-file'
-  'cmd-r': 'editor:toggle-line-comments'
-  'ctrl-c f': 'fuzzy-finder:toggle-file-finder'
-  'ctrl-c t': 'tree-view:toggle'
   'alt-x': 'command-palette:toggle'
   'f6': 'spell-check:toggle'
 
-# Build commands
 '.platform-darwin':
   'cmd-b': 'latex:build'
+  'cmd-t': 'application:new-file'
+  'cmd-r': 'editor:toggle-line-comments'
+  'ctrl-c f': 'advanced-open-file:toggle'
+  'ctrl-c n': 'tree-view:toggle'
+  'ctrl-c s': 'symbols-view:toggle-file-symbols'
+  'ctrl-c t': 'todo-show:find-in-workspace'
+  'ctrl-c g': 'go-to-line:toggle'
   'ctrl-shift-M': 'markdown-preview:toggle'
+
+'.advanced-open-file atom-text-editor':
+  'tab': 'advanced-open-file:autocomplete'

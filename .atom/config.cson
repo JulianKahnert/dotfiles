@@ -54,7 +54,8 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontSize: 12
+    fontFamily: "Source Code Pro"
+    fontSize: 13
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: false
@@ -83,10 +84,12 @@
   "highlight-selected": {}
   linter:
     errorPanelHeight: 24
-  "linter-pep8":
+  "linter-pycodestyle":
+    executablePath: "/usr/local/bin/pycodestyle"
     ignoreErrorCodes: [
       "E501"
     ]
+    maxLineLength: 80
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":
@@ -121,6 +124,7 @@
       "Imaginärteil"
       "Mittenfrequenzen"
       "randomisiert"
+      "Skalarprodukt"
     ]
     locales: [
       "de-DE"
@@ -132,9 +136,10 @@
     onSave: "untabify"
   "todo-show":
     showInTable: [
-      "File"
-      "Line"
+      "Type"
       "Text"
+      "Line"
+      "File"
     ]
     sortBy: "File"
     statusBarIndicator: true

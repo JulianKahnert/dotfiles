@@ -17,7 +17,7 @@ apm install language-latex
 apm install latex
 apm install latexer
 apm install linter
-apm install linter-pep8
+apm install linter-pycodestyle
 apm install markdown-scroll-sync
 apm install multi-cursor
 apm install package-sync

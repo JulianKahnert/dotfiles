@@ -54,7 +54,7 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontFamily: "Source Code Pro"
+    fontFamily: "SourceCodePro-Light"
     fontSize: 13
     scrollPastEnd: true
     showIndentGuide: true

@@ -51,10 +51,11 @@
 ## python
 'atom-text-editor[data-grammar~="python"]':
   'ctrl-c r': 'autocomplete-python:rename'
+  'cmd-b': 'script:run-with-profile'
 
 ## latex
 'atom-text-editor[data-grammar~="latex"]':
-  'cmd-b': 'latex:build'
+  'cmd-b': 'script:run'
 
 ## markdown
 'atom-text-editor[data-grammar~="gfm"]':

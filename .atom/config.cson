@@ -2,7 +2,7 @@
   "advanced-open-file":
     fuzzyMatch: true
   "autocomplete-python":
-    pythonPaths: "/usr/local/bin/python3"
+    pythonPaths: "$PROJECT/.venv/bin/python;/usr/local/bin/python3"
     useKite: false
     useSnippets: "required"
   autosave: {}
@@ -46,6 +46,7 @@
       "tree-view"
       "git-plus"
       "linter"
+      "script"
     ]
     telemetryConsent: "no"
     themes: [
@@ -104,6 +105,8 @@
     forceOverwrite: true
   "python-indent":
     hangingIndentTabs: 2
+  script:
+    stopOnRerun: true
   "spell-check":
     addKnownWords: true
     grammars: [

@@ -55,7 +55,7 @@
 
 ## latex
 'atom-text-editor[data-grammar~="latex"]':
-  'cmd-b': 'script:run'
+  'cmd-b': 'latex:build'
 
 ## markdown
 'atom-text-editor[data-grammar~="gfm"]':

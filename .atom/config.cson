@@ -47,6 +47,7 @@
       "git-plus"
       "linter"
       "script"
+      "latex"
     ]
     telemetryConsent: "no"
     themes: [

@@ -15,6 +15,7 @@ apm install highlight-selected
 apm install language-ini
 apm install language-latex
 apm install language-matlab
+apm install latex
 apm install linter
 apm install linter-pycodestyle
 apm install markdown-scroll-sync

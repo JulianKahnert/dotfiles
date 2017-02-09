@@ -21,6 +21,7 @@ apm install linter-pycodestyle
 apm install markdown-scroll-sync
 apm install multi-cursor
 apm install package-sync
+apm install pdf-view
 apm install python-indent
 apm install script
 apm install ssh-config

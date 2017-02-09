@@ -48,6 +48,7 @@
       "linter"
       "script"
       "latex"
+      "pdf-view"
     ]
     telemetryConsent: "no"
     themes: [
@@ -84,6 +85,10 @@
     general:
       analytics: false
   "highlight-selected": {}
+  latex:
+    enableShellEscape: true
+    loggingLevel: "error"
+    opener: "pdf-view"
   linter:
     errorPanelHeight: 24
   "linter-pycodestyle":
@@ -104,6 +109,10 @@
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  "pdf-view":
+    fitToWidthOnOpen: true
+  pomodoro:
+    playTicks: false
   "python-indent":
     hangingIndentTabs: 2
   script:

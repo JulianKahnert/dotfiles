@@ -1,61 +1,64 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-ZSH_CUSTOM=$HOME/.zsh/custom
 export DOTFILES=$HOME/.dotfiles
+export TERM="xterm-256color"
 
 # Basic work environment
 export DEFAULT_USER=juliankahnert
 export EDITOR=vim
 export LANG=de_DE.UTF-8
 
-# Set the theme
-case $(tty) in
-    /dev/tty[0-9])
-        ZSH_THEME="af-magic"
-    ;;
-    *)
-        ZSH_THEME="powerlevel9k/powerlevel9k"
-esac
+# User configuration
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+if [ "$(uname)" = "Darwin" ]
+then
+    # python pip module path (--user)
+    export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 
-# Modify powerline styling
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator virtualenv dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
-POWERLEVEL9K_VIRTUALENV_BACKGROUND="black"
-POWERLEVEL9K_VIRTUALENV_FOREGROUND="white"
+    export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
+    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
+
+elif [ "$(uname)" = "Linux" ]
+then
+    # python pip module path (--user)
+    export PATH="$HOME/.local/bin:$PATH"
+
+fi
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+source $HOME/.dotfiles/antigen/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle virtualenvwrapper
+antigen bundle osx
+antigen bundle sudo
+antigen bundle tmux
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+antigen apply
+
+# theme customization
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+
 # change background color for each system
 if [ "$(uname)" = "Darwin" ]
 then
-    color_foreground="white"
-    color_background="black"
-
     ZSH_TMUX_AUTOSTART="false"
     ZSH_TMUX_AUTOSTART_ONCE="false"
 
 elif [ "$(uname)" = "Linux" ]
 then
-    color_foreground="white"
-    color_background="089"
-
     ZSH_TMUX_AUTOSTART="true"
     ZSH_TMUX_AUTOSTART_ONCE="true"
 
 elif [ "$(uname)" = "FreeBSD" ]
 then
-    color_foreground="white"
-    color_background="124"
-
     ZSH_TMUX_AUTOSTART="true"
     ZSH_TMUX_AUTOSTART_ONCE="true"
 
 fi
-POWERLEVEL9K_DIR_HOME_BACKGROUND=$color_background
-POWERLEVEL9K_DIR_HOME_FOREGROUND=$color_foreground
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=$color_background
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$color_foreground
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=$color_background
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$color_foreground
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -77,33 +80,6 @@ COMPLETION_WAITING_DOTS="true"
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenvwrapper osx sudo tmux)
-
-VIRTUALENVWRAPPER_PYTHON=$(which python3)
-
-# User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-# export PATH="$HOME/.anaconda/bin:$PATH"
-if [ "$(uname)" = "Darwin" ]
-then
-    # python pip module path (--user)
-    export PATH="$HOME/Library/Python/3.6/bin:$PATH"
-
-    export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
-    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
-
-elif [ "$(uname)" = "Linux" ]
-then
-    # python pip module path (--user)
-    export PATH="$HOME/.local/bin:$PATH"
-
-fi
-source $ZSH/oh-my-zsh.sh
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

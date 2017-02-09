@@ -31,12 +31,10 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
+# global shortcuts
 'atom-text-editor':
   'alt-x': 'command-palette:toggle'
   'f6': 'spell-check:toggle'
-
-'.platform-darwin':
-  'cmd-b': 'latex:build'
   'cmd-t': 'application:new-file'
   'cmd-r': 'editor:toggle-line-comments'
   'ctrl-c f': 'advanced-open-file:toggle'
@@ -44,7 +42,21 @@
   'ctrl-c s': 'symbols-view:toggle-file-symbols'
   'ctrl-c t': 'todo-show:find-in-workspace'
   'ctrl-c g': 'go-to-line:toggle'
-  'ctrl-shift-M': 'markdown-preview:toggle'
 
+# window specific
 '.advanced-open-file atom-text-editor':
   'tab': 'advanced-open-file:autocomplete'
+
+# language specific
+## python
+'atom-text-editor[data-grammar~="python"]':
+  'ctrl-c r': 'autocomplete-python:rename'
+  'cmd-b': 'script:run-with-profile'
+
+## latex
+'atom-text-editor[data-grammar~="latex"]':
+  'cmd-b': 'latex:build'
+
+## markdown
+'atom-text-editor[data-grammar~="gfm"]':
+  'cmd-b': 'markdown-preview:toggle'

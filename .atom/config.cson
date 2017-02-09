@@ -2,7 +2,7 @@
   "advanced-open-file":
     fuzzyMatch: true
   "autocomplete-python":
-    pythonPaths: "/usr/local/bin/python3"
+    pythonPaths: "$PROJECT/.venv/bin/python;/usr/local/bin/python3"
     useKite: false
     useSnippets: "required"
   autosave: {}
@@ -46,6 +46,8 @@
       "tree-view"
       "git-plus"
       "linter"
+      "script"
+      "latex"
     ]
     telemetryConsent: "no"
     themes: [
@@ -54,7 +56,8 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontSize: 12
+    fontFamily: "SourceCodePro-Light"
+    fontSize: 13
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: false
@@ -83,10 +86,12 @@
   "highlight-selected": {}
   linter:
     errorPanelHeight: 24
-  "linter-pep8":
+  "linter-pycodestyle":
+    executablePath: "/usr/local/bin/pycodestyle"
     ignoreErrorCodes: [
       "E501"
     ]
+    maxLineLength: 80
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":
@@ -101,6 +106,8 @@
     forceOverwrite: true
   "python-indent":
     hangingIndentTabs: 2
+  script:
+    stopOnRerun: true
   "spell-check":
     addKnownWords: true
     grammars: [
@@ -121,6 +128,7 @@
       "Imaginärteil"
       "Mittenfrequenzen"
       "randomisiert"
+      "Skalarprodukt"
     ]
     locales: [
       "de-DE"
@@ -132,9 +140,10 @@
     onSave: "untabify"
   "todo-show":
     showInTable: [
-      "File"
-      "Line"
+      "Type"
       "Text"
+      "Line"
+      "File"
     ]
     sortBy: "File"
     statusBarIndicator: true

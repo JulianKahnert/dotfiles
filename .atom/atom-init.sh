@@ -14,14 +14,15 @@ apm install git-plus
 apm install highlight-selected
 apm install language-ini
 apm install language-latex
+apm install language-matlab
 apm install latex
-apm install latexer
 apm install linter
-apm install linter-pep8
+apm install linter-pycodestyle
 apm install markdown-scroll-sync
 apm install multi-cursor
 apm install package-sync
 apm install python-indent
+apm install script
 apm install ssh-config
 apm install synced-sidebar
 apm install todo-show

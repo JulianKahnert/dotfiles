@@ -13,6 +13,7 @@
       "exception-reporting"
       "metrics"
       "fuzzy-finder"
+      "open-on-github"
     ]
     fileEncoding: "utf8"
     ignoredNames: [

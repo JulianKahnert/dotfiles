@@ -97,12 +97,15 @@ upgrade_dotfiles () {
     /bin/sh $DOTFILES/upgrade-dotfiles.sh
 }
 
-if [ "$(uname)" != "Darwin" ]
-then
-    eval cat /etc/motd
-fi
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # user fuzzy finder "fzf"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # don't exclude hidden files, but .git folders
 export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
+
+if [ "$(uname)" != "Darwin" ]
+then
+    eval cat /etc/motd
+fi

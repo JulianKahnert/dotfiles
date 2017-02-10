@@ -29,7 +29,7 @@ antigen bundle git
 # antigen bundle virtualenvwrapper
 antigen bundle osx
 antigen bundle sudo
-antigen bundle tmux
+if which tmux > /dev/null; then; antigen bundle tmux; fi
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship

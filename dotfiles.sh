@@ -26,7 +26,8 @@ if [ "install" = "$1" ]; then
     ln -sf "$DOTDIR/.atom"          "$HOME"
 
     # Install vim packages
-    if hash vim 2>/dev/null; then
+    if which vim > /dev/null
+    then
         vim +BundleInstall +BundleClean +qall
     fi
 
@@ -34,9 +35,10 @@ if [ "install" = "$1" ]; then
 elif [ "update" = "$1" ]; then
     git reset --hard master
     git pull --rebase --stat origin master
-    git submodule update
+    git submodule init && git submodule update
     # update vim
-    if hash vim 2>/dev/null; then
+    if which vim > /dev/null
+    then
         vim +BundleUpdate +BundleClean +qall
     fi
     # Link font to library and clear font cache for user fonts

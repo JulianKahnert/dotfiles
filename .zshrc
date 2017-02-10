@@ -109,7 +109,7 @@ then
     export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
 fi
 
-if [ "$(uname)" != "Darwin" ]
-then
-    eval cat /etc/motd
-fi
+# if [ "$(uname)" != "Darwin" ]
+# then
+#     eval cat /etc/motd
+# fi

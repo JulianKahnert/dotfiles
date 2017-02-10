@@ -9,8 +9,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " comment with shortcut
 Plugin 'vim-scripts/tcomment'
-" color theme
-Plugin 'altercation/vim-colors-solarized'
 " bracket auto closing
 Plugin 'itmammoth/doorboy.vim'
 " All of your Plugins must be added before the following line
@@ -22,7 +20,6 @@ highlight BadWhitespace ctermbg=red guibg=red
 syntax on
 " COLOR SCHEMES
 set background=dark
-colorscheme solarized
 " FILE BROWSING
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

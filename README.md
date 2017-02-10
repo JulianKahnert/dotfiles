@@ -10,7 +10,7 @@ git clone https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install
 ```
 Also needed:
-* Python: `pip install flake8 pep8 virtualenvwrapper`
+* Python: `pip install flake8 pycodestyle`
 * LaTex: `brew cask install mactex`
 * Search Tools: `brew install the_silver_searcher fzf`
 
@@ -28,16 +28,7 @@ CTRL T      path-searching
 
 ## VIM
 ```
-<F5>    LaTex: start/stop compile
-<F6>    Change color theme
-<F7>    Syntax check toggle
-<F8>    Markdown Preview: start
-<F9>    Markdown Preview: stop
-
 <Space> Fold code
-<S-n>   NERD Tree toggle
-<S-hjkl>NERD Tree Navigation
-
 gcc     comment current line
 VIS: gc comment section
 ```

@@ -33,9 +33,14 @@ if [ "install" = "$1" ]; then
 
 
 elif [ "update" = "$1" ]; then
+    # set repo to current master branch
     git reset --hard master
     git pull --rebase --stat origin master
+    # delete all untracked folders, e.g. old submodules
+    git clean -f -f -d
+    # initialize new submodules
     git submodule init && git submodule update
+
     # update vim
     if which vim > /dev/null
     then

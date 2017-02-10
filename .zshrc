@@ -26,10 +26,8 @@ fi
 source $HOME/.dotfiles/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
-# antigen bundle virtualenvwrapper
 antigen bundle osx
 antigen bundle sudo
-if which tmux > /dev/null; then; antigen bundle tmux; fi
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
@@ -43,20 +41,14 @@ SPACESHIP_PROMPT_ADD_NEWLINE=true
 # change background color for each system
 if [ "$(uname)" = "Darwin" ]
 then
-    ZSH_TMUX_AUTOSTART="false"
-    ZSH_TMUX_AUTOSTART_ONCE="false"
     SPACESHIP_PREFIX_HOST="   "
 
 elif [ "$(uname)" = "Linux" ]
 then
-    ZSH_TMUX_AUTOSTART="true"
-    ZSH_TMUX_AUTOSTART_ONCE="true"
     SPACESHIP_PREFIX_HOST=" 🐧  "
 
 elif [ "$(uname)" = "FreeBSD" ]
 then
-    ZSH_TMUX_AUTOSTART="true"
-    ZSH_TMUX_AUTOSTART_ONCE="true"
     SPACESHIP_PREFIX_HOST=" 😈  "
 
 fi
@@ -87,7 +79,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
 alias ll='ls -lah'
-alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
+alias tmux='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
 
 
 # Avoid homebrew from sending analytics
@@ -112,7 +104,7 @@ then
     export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
 fi
 
-# if [ "$(uname)" != "Darwin" ]
-# then
-#     eval cat /etc/motd
-# fi
+if [ "$(uname)" != "Darwin" ]
+then
+    eval tmux
+fi

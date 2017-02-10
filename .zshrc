@@ -90,7 +90,7 @@ nrepo () {
     if [ -d "$NAME" ]; then
         echo "\nfolder already exists!"
     else
-        echo "genearte folder and change directory:"
+        echo "generate folder and change directory:"
         mkdir $NAME
     fi
     cd $NAME

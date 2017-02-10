@@ -1,2 +1,4 @@
 .git
 /Library/
+__pycache__
+.pyc

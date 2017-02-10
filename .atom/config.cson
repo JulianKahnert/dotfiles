@@ -93,7 +93,7 @@
   linter:
     errorPanelHeight: 24
   "linter-pycodestyle":
-    executablePath: "/usr/local/bin/pycodestyle"
+    executablePath: "/Users/juliankahnert/.pyenv/shims/pycodestyle"
     ignoreErrorCodes: [
       "E501"
     ]

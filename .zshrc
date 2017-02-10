@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export DOTFILES=$HOME/.dotfiles
 export TERM="xterm-256color"
+export WORKON_HOME=~/.envs
 
 # Basic work environment
 export DEFAULT_USER=juliankahnert
@@ -11,9 +12,6 @@ export LANG=de_DE.UTF-8
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 if [ "$(uname)" = "Darwin" ]
 then
-    # python pip module path (--user)
-    export PATH="$HOME/Library/Python/3.6/bin:$PATH"
-
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
     export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
 
@@ -28,7 +26,7 @@ fi
 source $HOME/.dotfiles/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
-antigen bundle virtualenvwrapper
+# antigen bundle virtualenvwrapper
 antigen bundle osx
 antigen bundle sudo
 antigen bundle tmux
@@ -40,7 +38,7 @@ antigen apply
 # theme customization
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_PROMPT_SEPARATE_LINE=true
-SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_ADD_NEWLINE=true
 
 # change background color for each system
 if [ "$(uname)" = "Darwin" ]
@@ -92,18 +90,24 @@ alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/
 # Avoid homebrew from sending analytics
 export HOMEBREW_NO_ANALYTICS=1
 
-# Custom functions
-upgrade_dotfiles () {
-    /bin/sh $DOTFILES/upgrade-dotfiles.sh
-}
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# pyenv stuff
+if which pyenv > /dev/null
+then
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    export SPACESHIP_VENV_SHOW=false
+
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 # user fuzzy finder "fzf"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# don't exclude hidden files, but .git folders
-export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
+if which fzf > /dev/null
+then
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    # don't exclude hidden files, but .git folders
+    export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
+fi
 
 if [ "$(uname)" != "Darwin" ]
 then

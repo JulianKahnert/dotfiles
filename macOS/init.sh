@@ -82,3 +82,8 @@ mas install 430255202   # Mactracker
 mas install 470158793   # Keka
 mas install 924726344   # Deliveries
 mas install 411246225   # Caffeine
+
+# install python stuff
+brew install pyenv
+brew install pyenv-virtualenv
+# pyenv install 3.6.0

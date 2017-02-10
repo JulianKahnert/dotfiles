@@ -45,16 +45,19 @@ if [ "$(uname)" = "Darwin" ]
 then
     ZSH_TMUX_AUTOSTART="false"
     ZSH_TMUX_AUTOSTART_ONCE="false"
+    SPACESHIP_PREFIX_HOST=""
 
 elif [ "$(uname)" = "Linux" ]
 then
     ZSH_TMUX_AUTOSTART="true"
     ZSH_TMUX_AUTOSTART_ONCE="true"
+    SPACESHIP_PREFIX_HOST="🐧"
 
 elif [ "$(uname)" = "FreeBSD" ]
 then
     ZSH_TMUX_AUTOSTART="true"
     ZSH_TMUX_AUTOSTART_ONCE="true"
+    SPACESHIP_PREFIX_HOST="😈"
 
 fi
 

@@ -56,6 +56,7 @@
 ## latex
 'atom-text-editor[data-grammar~="latex"]':
   'cmd-b': 'latex:build'
+  'cmd-alt-b': 'latex:sync'
 
 ## markdown
 'atom-text-editor[data-grammar~="gfm"]':

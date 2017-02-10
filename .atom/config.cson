@@ -13,6 +13,7 @@
       "exception-reporting"
       "metrics"
       "fuzzy-finder"
+      "open-on-github"
     ]
     fileEncoding: "utf8"
     ignoredNames: [
@@ -48,6 +49,7 @@
       "linter"
       "script"
       "latex"
+      "pdf-view"
     ]
     telemetryConsent: "no"
     themes: [
@@ -84,10 +86,14 @@
     general:
       analytics: false
   "highlight-selected": {}
+  latex:
+    enableShellEscape: true
+    loggingLevel: "error"
+    opener: "pdf-view"
   linter:
     errorPanelHeight: 24
   "linter-pycodestyle":
-    executablePath: "/usr/local/bin/pycodestyle"
+    executablePath: "/Users/juliankahnert/.pyenv/shims/pycodestyle"
     ignoreErrorCodes: [
       "E501"
     ]
@@ -104,6 +110,10 @@
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  "pdf-view":
+    fitToWidthOnOpen: true
+  pomodoro:
+    playTicks: false
   "python-indent":
     hangingIndentTabs: 2
   script:

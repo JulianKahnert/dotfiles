@@ -102,7 +102,10 @@ then
 fi
 
 # start tmux (via alias) if not on a mac
-if [ "$(uname)" != "Darwin" ] && ! { [ -n "$TMUX" ]; }
+if which tmux > /dev/null
 then
-    eval tmx
+    if [ "$(uname)" != "Darwin" ] && ! { [ -n "$TMUX" ]; }
+    then
+        eval tmx
+    fi
 fi

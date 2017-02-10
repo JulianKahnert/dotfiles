@@ -8,6 +8,9 @@ export DEFAULT_USER=juliankahnert
 export EDITOR=vim
 export LANG=de_DE.UTF-8
 
+# Avoid homebrew from sending analytics
+export HOMEBREW_NO_ANALYTICS=1
+
 # User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 if [ "$(uname)" = "Darwin" ]
@@ -75,16 +78,10 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
 alias ll='ls -lah'
-alias tmux='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
-
-
-# Avoid homebrew from sending analytics
-export HOMEBREW_NO_ANALYTICS=1
-
+alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
 
 # pyenv stuff
 if which pyenv > /dev/null
@@ -104,7 +101,8 @@ then
     export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
 fi
 
-if [ "$(uname)" != "Darwin" ]
+# start tmux (via alias) if not on a mac
+if [ "$(uname)" != "Darwin" ] && ! { [ -n "$TMUX" ]; }
 then
-    eval tmux
+    eval tmx
 fi

@@ -1,0 +1,3 @@
+*.txt   text
+*.md    diff=wrap
+*.tex   diff=wrap

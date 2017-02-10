@@ -51,7 +51,7 @@
 ## python
 'atom-text-editor[data-grammar~="python"]':
   'ctrl-c r': 'autocomplete-python:rename'
-  'cmd-b': 'script:run-with-profile'
+  'cmd-b': 'script:run'
 
 ## latex
 'atom-text-editor[data-grammar~="latex"]':

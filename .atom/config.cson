@@ -2,7 +2,7 @@
   "advanced-open-file":
     fuzzyMatch: true
   "autocomplete-python":
-    pythonPaths: "$PROJECT/.venv/bin/python;/usr/local/bin/python3"
+    pythonPaths: "/Users/juliankahnert/.pyenv/versions/$PROJECT/bin/python;/usr/local/bin/python3"
     useKite: false
     useSnippets: "required"
   autosave: {}

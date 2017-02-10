@@ -77,11 +77,43 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Example aliases
+# Aliases
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
 alias ll='ls -lah'
 alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
+
+# Functions
+nrepo () {
+    NAME="$*"
+    # folder
+    if [ -d "$NAME" ]; then
+        echo "\nfolder already exists!"
+    else
+        echo "generate folder and change directory:"
+        mkdir $NAME
+    fi
+    cd $NAME
+
+    # repository
+    if [ -d .git ]; then
+        echo "\nrepo already exists!"
+    else
+        echo "\ninitialize repo:"
+        git init
+    fi
+
+    # virtual environment
+    if which pyenv > /dev/null; then
+        if [ -f .python-version ]; then
+            echo "\nvirtualenv already exists!"
+        else
+            echo "\ncreate a virtualenv:"
+            pyenv virtualenv $NAME
+            pyenv local $NAME
+        fi
+    fi
+}
 
 # pyenv stuff
 if which pyenv > /dev/null
@@ -102,7 +134,10 @@ then
 fi
 
 # start tmux (via alias) if not on a mac
-if [ "$(uname)" != "Darwin" ] && ! { [ -n "$TMUX" ]; }
+if which tmux > /dev/null
 then
-    eval tmx
+    if [ "$(uname)" != "Darwin" ] && ! { [ -n "$TMUX" ]; }
+    then
+        eval tmx
+    fi
 fi

@@ -1,0 +1,16 @@
+[user]
+    name = Julian Kahnert
+    email = mail@juliankahnert.de
+
+[core]
+    editor = vim
+    precomposeunicode = true
+    pager = less -FX
+    autocrlf = input
+
+[push]
+    default = simple
+
+[diff "wrap"]
+    textconv = fmt -w80
+    prompt = false

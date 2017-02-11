@@ -62,3 +62,10 @@ ag --hidden --ignore .git -g "" PATTERN /PATH/TO/   # also search hidden files,
 CTRL R      commands
 CTRL T      paths
 ```
+
+## ZSH Functions
+
+* cdf - cd into the directory of the selected file
+* cdh - fuzzy matching in folder history
+* fkill - kill process
+* mkrepo - create a new repo + pyenv

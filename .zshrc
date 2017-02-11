@@ -28,6 +28,7 @@ fi
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 source $HOME/.dotfiles/antigen/antigen.zsh
 antigen use oh-my-zsh
+antigen bundle dirpersist
 antigen bundle git
 antigen bundle osx
 antigen bundle sudo
@@ -84,7 +85,8 @@ alias ll='ls -lah'
 alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
 
 # Functions
-nrepo () {
+# mkrepo - create a new repo + pyenv
+mkrepo () {
     NAME="$*"
     # folder
     if [ -d "$NAME" ]; then
@@ -113,6 +115,29 @@ nrepo () {
             pyenv local $NAME
         fi
     fi
+}
+
+# cdf - cd into the directory of the selected file
+cdf() {
+   local file
+   local dir
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+
+# cdh - fuzzy matching in folder history
+cdh() {
+  eval cd "$( ( dirs -v ) | fzf +s --tac | sed 's/ *[0-9]* *//')"
+}
+
+# fkill - kill process
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
 }
 
 # pyenv stuff

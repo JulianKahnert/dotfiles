@@ -164,5 +164,6 @@ then
     if [ "$(uname)" != "Darwin" ] && ! { [ -n "$TMUX" ]; }
     then
         eval tmx
+        eval cat /etc/motd
     fi
 fi

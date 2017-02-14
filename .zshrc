@@ -29,6 +29,7 @@ fi
 source $HOME/.dotfiles/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle dirpersist
+antigen bundle docker
 antigen bundle git
 antigen bundle osx
 antigen bundle sudo

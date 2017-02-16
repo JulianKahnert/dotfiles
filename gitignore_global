@@ -1,10 +1,11 @@
 *~
-.DS_Store
 *.log
 *.blg
 *.bbl
 *.o
-__pycache__
 *.pyc
 *.python-version
 *.ipynb_checkpoints
+__pycache__
+.DS_Store
+.venv

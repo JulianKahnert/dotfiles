@@ -162,7 +162,7 @@ fi
 # start tmux (via alias) if not on a mac
 if which tmux > /dev/null
 then
-    if [ "$(uname)" != "Darwin" ] && ! { [ -n "$TMUX" ]; }
+    if ! { [ -z $SSH_CONNECTION ] } && ! { [ -n "$TMUX" ]; }
     then
         eval tmx
         eval cat /etc/motd

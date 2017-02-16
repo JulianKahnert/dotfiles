@@ -83,7 +83,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
 alias ll='ls -lah'
-alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
 
 # Functions
 # mkrepo - create a new repo + pyenv
@@ -164,7 +163,6 @@ if which tmux > /dev/null
 then
     if ! { [ -z $SSH_CONNECTION ] } && ! { [ -n "$TMUX" ]; }
     then
-        eval tmx
-        eval cat /etc/motd
+        eval "tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit"
     fi
 fi

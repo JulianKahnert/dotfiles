@@ -7,6 +7,7 @@ export WORKON_HOME=~/.envs
 export DEFAULT_USER=juliankahnert
 export EDITOR=vim
 export LANG=de_DE.UTF-8
+export DIRSTACKSIZE=10000
 
 # Avoid homebrew from sending analytics
 export HOMEBREW_NO_ANALYTICS=1

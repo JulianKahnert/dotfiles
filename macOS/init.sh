@@ -53,6 +53,8 @@ brew cask install tunnelblick
 
 # Install fonts
 brew tap caskroom/fonts
+brew cask install font-fantasque-sans-mono
+brew cask install font-input
 brew cask install font-source-code-pro
 
 # Link installed apps.

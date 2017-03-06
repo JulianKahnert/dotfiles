@@ -1,2 +1,2 @@
 *.txt   text
-*.tex   diff=wrap
+*.tex   text

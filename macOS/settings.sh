@@ -167,6 +167,9 @@ defaults write com.apple.screencapture disable-shadow -bool false
 # Finder                                                                      #
 ###############################################################################
 
+# Finder: enable a CMD+q for quitting the finder
+defaults write com.apple.finder QuitMenuItem -bool YES
+
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
 
@@ -259,9 +262,9 @@ sudo chflags nohidden /Volumes
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-	General -bool true \
-	OpenWith -bool true \
-	Privileges -bool true
+    General -bool true \
+    OpenWith -bool true \
+    Privileges -bool true
 
 # renew default "open with" file types
 # delete old defaults

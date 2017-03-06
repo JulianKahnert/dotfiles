@@ -7,6 +7,7 @@ export WORKON_HOME=~/.envs
 export DEFAULT_USER=juliankahnert
 export EDITOR=vim
 export LANG=de_DE.UTF-8
+export DIRSTACKSIZE=10000
 
 # Avoid homebrew from sending analytics
 export HOMEBREW_NO_ANALYTICS=1
@@ -28,6 +29,7 @@ fi
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 source $HOME/.dotfiles/antigen/antigen.zsh
 antigen use oh-my-zsh
+antigen bundle colored-man-pages
 antigen bundle dirpersist
 antigen bundle docker
 antigen bundle git
@@ -83,7 +85,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
 alias dig='dig ANY'
 alias ll='ls -lah'
-alias tmx='tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit'
 
 # Functions
 # mkrepo - create a new repo + pyenv
@@ -164,7 +165,6 @@ if which tmux > /dev/null
 then
     if ! { [ -z $SSH_CONNECTION ] } && ! { [ -n "$TMUX" ]; }
     then
-        eval tmx
-        eval cat /etc/motd
+        eval "tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit"
     fi
 fi

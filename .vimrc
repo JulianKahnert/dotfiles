@@ -1,3 +1,4 @@
+" *** VIM CONFIG FILE ***
 
 set nocompatible              " required
 filetype off                  " required
@@ -20,9 +21,6 @@ highlight BadWhitespace ctermbg=red guibg=red
 syntax on
 " COLOR SCHEMES
 set background=dark
-" FILE BROWSING
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 " allow crontab editing on macOS
 autocmd filetype crontab setlocal nobackup nowritebackup
 " UTF8 SUPPORT
@@ -31,12 +29,11 @@ set encoding=utf-8
 let g:SimpylFold_docstring_preview=1
 " LINE NUMBERING
 set number
-" SYSTEM CLIPBOARD
-set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
 " Highlight current line
 set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
 " Set to auto read when file is changed from the outside
 set autoread
 " Ignore case when searching
@@ -65,6 +62,8 @@ set foldlevel=99
 
 " KEY MAPPING
 
+nnoremap <leader>d "_d
+
 " Remove default arrow key mappings
 no <up> <Nop>
 " ino <down> <Nop>
@@ -78,11 +77,3 @@ vno <up> <Nop>
 vno <down> <Nop>
 vno <left> <Nop>
 vno <right> <Nop>
-" Map proper tabbing commands
-map <C-n> :NERDTreeToggle<CR>
-nmap <C-right> :tabnext<CR>
-nmap <C-left> :tabprevious<CR>
-map <C-right> :tabnext<CR>
-map <C-left> :tabprevious<CR>
-imap <C-right> <ESC>:tabprevious<CR>
-imap <C-left> <ESC>:tabnext<CR>

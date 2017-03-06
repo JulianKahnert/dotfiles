@@ -58,8 +58,7 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontFamily: "SourceCodePro-Light"
-    fontSize: 13
+    fontFamily: "InputMono-Thin"
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: false

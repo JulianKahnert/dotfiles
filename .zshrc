@@ -29,6 +29,7 @@ fi
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 source $HOME/.dotfiles/antigen/antigen.zsh
 antigen use oh-my-zsh
+antigen bundle colored-man-pages
 antigen bundle dirpersist
 antigen bundle docker
 antigen bundle git

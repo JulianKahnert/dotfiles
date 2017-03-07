@@ -82,8 +82,6 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Aliases
-alias UbuntuVersion="lsb_release -a | grep \"Release:\|Codename:\" | awk '{print $2}'"
-alias dig='dig ANY'
 alias ll='ls -lah'
 
 # Functions

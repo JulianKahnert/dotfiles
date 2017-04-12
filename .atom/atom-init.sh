@@ -9,6 +9,7 @@ brew cask install atom
 # install packages
 apm install auto-detect-indentation
 apm install autocomplete-python
+apm install file-icons
 apm install fold-functions
 apm install git-plus
 apm install highlight-selected

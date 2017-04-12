@@ -63,7 +63,7 @@
     showIndentGuide: true
     showInvisibles: false
     softWrap: true
-    softWrapHangingIndent: 4
+    softWrapHangingIndent: 2
     tabLength: 4
     tabType: "soft"
     themes: [
@@ -89,10 +89,9 @@
     enableShellEscape: true
     loggingLevel: "error"
     opener: "pdf-view"
-  linter:
-    errorPanelHeight: 24
+  linter: {}
   "linter-pycodestyle":
-    executablePath: "/Users/juliankahnert/.pyenv/shims/pycodestyle"
+    executablePath: "/Users/juliankahnert/.pyenv/versions/3.6.0/Python.framework/Versions/3.6/bin/pycodestyle"
     ignoreErrorCodes: [
       "E501"
     ]
@@ -138,6 +137,8 @@
       "Mittenfrequenzen"
       "randomisiert"
       "Skalarprodukt"
+      "Amplitudenmodulation"
+      "vernachlässigbar"
     ]
     locales: [
       "de-DE"
@@ -154,10 +155,12 @@
       "Line"
       "File"
     ]
-    sortBy: "File"
+    sortBy: "Line"
     statusBarIndicator: true
+  "tool-bar":
+    position: "Left"
   "tree-view":
-    autoReveal: true
+    focusOnReveal: false
     hideIgnoredNames: true
   welcome:
     showOnStartup: false

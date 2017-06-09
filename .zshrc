@@ -83,6 +83,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Aliases
 alias ll='ls -lah'
+alias fl='open -a forklift .'
 
 # Functions
 # mkrepo - create a new repo + pyenv

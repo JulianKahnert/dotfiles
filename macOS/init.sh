@@ -56,6 +56,7 @@ brew tap caskroom/fonts
 brew cask install font-fantasque-sans-mono
 brew cask install font-input
 brew cask install font-source-code-pro
+brew cask install font-fontawesome
 
 # Link installed apps.
 brew linkapps

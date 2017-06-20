@@ -57,7 +57,7 @@
       "one-dark-ui"
       "tomorrow-night-eighties-syntax"
     ]
-    useCustomTitleBar: true
+    titleBar: "custom"
   editor:
     fontFamily: "InputMono-Thin"
     scrollPastEnd: true
@@ -97,10 +97,11 @@
       "E501"
     ]
     maxLineLength: 80
+  "linter-ui-default":
+    panelHeight: 69
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":
-    layoutMode: "Compact"
     tabSizing: "Minimum"
   "one-light-ui":
     fontSize: 10

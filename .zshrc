@@ -142,6 +142,11 @@ fkill() {
   fi
 }
 
+# agrepl() - bulk search in files and replace string
+agrepl() {
+  ag -0 -l "$1" | xargs -0 sed -E -i '' 's/'$1'/'$2'/g'
+}
+
 # pyenv stuff
 if which pyenv > /dev/null
 then

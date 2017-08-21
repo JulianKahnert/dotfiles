@@ -85,6 +85,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Aliases
 alias ll='ls -lah'
 alias fl='open -a forklift .'
+alias youdl='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best"'
 
 # Functions
 # mkrepo - create a new repo + pyenv

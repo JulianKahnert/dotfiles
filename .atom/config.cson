@@ -96,7 +96,7 @@
     ignoreErrorCodes: [
       "E501"
     ]
-    maxLineLength: 80
+    maxLineLength: 79
   "linter-ui-default":
     panelHeight: 69
   "markdown-preview":

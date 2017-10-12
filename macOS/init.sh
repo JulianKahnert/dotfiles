@@ -29,6 +29,8 @@ brew install homebrew/dupes/openssh
 
 # Install other useful binaries.
 brew install git
+brew install fzf
+brew install ag
 brew install tmux
 brew install lynx
 brew install ssh-copy-id

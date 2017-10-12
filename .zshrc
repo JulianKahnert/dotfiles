@@ -2,6 +2,7 @@
 export DOTFILES=$HOME/.dotfiles
 export TERM="xterm-256color"
 export WORKON_HOME=~/.envs
+export DISABLE_AUTO_TITLE="true"
 
 # Basic work environment
 export DEFAULT_USER=juliankahnert

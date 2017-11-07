@@ -25,6 +25,7 @@ apm install multi-cursor
 apm install package-sync
 apm install pdf-view
 apm install python-indent
+apm install pretty-json
 apm install script
 apm install ssh-config
 apm install synced-sidebar

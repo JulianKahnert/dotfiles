@@ -3,6 +3,7 @@
     fuzzyMatch: true
   "autocomplete-python":
     pythonPaths: "/Users/juliankahnert/.pyenv/versions/$PROJECT/bin/python;/usr/local/bin/python3"
+    showTooltips: true
     useKite: false
     useSnippets: "required"
   autosave: {}
@@ -15,6 +16,7 @@
       "fuzzy-finder"
       "open-on-github"
       "synced-sidebar"
+      "linter"
     ]
     fileEncoding: "utf8"
     ignoredNames: [
@@ -33,7 +35,6 @@
       "spell-check"
       "markdown-preview"
       "fuzzy-finder"
-      "autocomplete-python"
       "highlight-selected"
       "advanced-open-file"
       "todo-show"
@@ -51,6 +52,7 @@
       "script"
       "latex"
       "pdf-view"
+      "autocomplete-python"
     ]
     telemetryConsent: "no"
     themes: [
@@ -92,11 +94,9 @@
     opener: "pdf-view"
   linter: {}
   "linter-pycodestyle":
-    executablePath: "/Users/juliankahnert/.pyenv/versions/3.6.0/Python.framework/Versions/3.6/bin/pycodestyle"
     ignoreErrorCodes: [
       "E501"
     ]
-    maxLineLength: 79
   "linter-ui-default":
     panelHeight: 69
   "markdown-preview":
@@ -141,6 +141,8 @@
       "Skalarprodukt"
       "Amplitudenmodulation"
       "vernachlässigbar"
+      "Testcase"
+      "Credentials"
     ]
     locales: [
       "de-DE"

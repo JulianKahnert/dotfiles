@@ -4,6 +4,8 @@
 
 # global shortcuts
 'atom-text-editor':
+  'alt-shift-cmd-left': 'window:focus-pane-on-left'
+  'alt-shift-cmd-right': 'window:focus-pane-on-right'
   'alt-x': 'command-palette:toggle'
   'f6': 'spell-check:toggle'
   'cmd-t': 'application:new-file'

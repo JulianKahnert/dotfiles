@@ -1,4 +1,5 @@
 packages: [
+  "atom-ide-ui"
   "auto-detect-indentation"
   "autocomplete-python"
   "busy-signal"

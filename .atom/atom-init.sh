@@ -28,6 +28,5 @@ apm install python-indent
 apm install pretty-json
 apm install script
 apm install ssh-config
-apm install synced-sidebar
 apm install todo-show
 apm install tomorrow-night-eighties-syntax

@@ -92,3 +92,7 @@ mas install 411246225   # Caffeine
 brew install pyenv
 brew install pyenv-virtualenv
 # pyenv install 3.6.0
+
+# use osxkeychain for git credentials
+# https://stackoverflow.com/a/39159951
+git config --global credential.helper osxkeychain

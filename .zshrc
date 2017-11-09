@@ -154,6 +154,7 @@ if which pyenv > /dev/null
 then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     export SPACESHIP_VENV_SHOW=false
+    export PATH="$HOME/.pyenv/bin:$PATH"
 
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"

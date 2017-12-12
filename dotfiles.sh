@@ -17,6 +17,7 @@ fi
 if [ "install" = "$1" ]; then
     # Update all submodules
     git submodule init && git submodule update
+
     # Create symlinks into the home dir to enable usage of the files
     ln -sf "$DOTDIR/.zshrc"     	"$HOME"
     ln -sf "$DOTDIR/.zsh"       	"$HOME"
@@ -25,12 +26,15 @@ if [ "install" = "$1" ]; then
     ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
     ln -sf "$DOTDIR/.atom"          "$HOME"
 
+    # install some other stuff
+    echo "Password requried for the following steps:"
+    bash "$DOTDIR/$SYSTEM/init.sh"
+
     # Install vim packages
     if which vim > /dev/null
     then
         vim +BundleInstall +BundleClean +qall
     fi
-
 
 elif [ "update" = "$1" ]; then
     # set repo to current master branch

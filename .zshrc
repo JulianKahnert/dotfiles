@@ -15,6 +15,7 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="$HOME/.pyenv/bin:$PATH"
 if [ "$(uname)" = "Darwin" ]
 then
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
@@ -154,7 +155,6 @@ if which pyenv > /dev/null
 then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     export SPACESHIP_VENV_SHOW=false
-    export PATH="$HOME/.pyenv/bin:$PATH"
 
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"

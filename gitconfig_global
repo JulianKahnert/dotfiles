@@ -1,6 +1,5 @@
 [user]
     name = Julian Kahnert
-    email = mail@juliankahnert.de
 
 [core]
     editor = vim

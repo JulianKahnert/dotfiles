@@ -36,6 +36,12 @@ if [ "install" = "$1" ]; then
         vim +BundleInstall +BundleClean +qall
     fi
 
+    # Setup git config
+    echo "\n\nSetting up global git config ..."
+    git config --global include.path "${DOTDIR}/gitconfig_global"
+    git config --global core.excludesfile "${DOTDIR}/gitignore_global"
+    git config --global core.attributesfile "${DOTDIR}/gitattributes_global"
+
 elif [ "update" = "$1" ]; then
     # set repo to current master branch
     git reset --hard master
@@ -70,9 +76,3 @@ elif [ "init" = "$1" ]; then
 else
     cat "$DOTDIR/README.md"
 fi
-
-# Setup git config
-echo "\n\nSetting up global git config ..."
-git config --global include.path "${DOTDIR}/gitconfig_global"
-git config --global core.excludesfile "${DOTDIR}/gitignore_global"
-git config --global core.attributesfile "${DOTDIR}/gitattributes_global"

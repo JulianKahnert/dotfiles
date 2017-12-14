@@ -42,9 +42,11 @@ brew install sox
 
 # Install caskroom apps.
 brew tap caskroom/versions
+brew cask install appcleaner
 brew cask install atom
-brew cask install etcher
 brew cask install caffeine
+brew cask install forklift
+brew cask install etcher
 brew cask install mactex
 brew cask install sourcetree
 
@@ -68,7 +70,6 @@ mas install 409201541   # Pages
 mas install 409183694   # Keynote
 mas install 408981434   # iMovie
 mas install 921923693   # LibreOffice Vanilla
-mas install 412448059   # ForkLift
 mas install 443987910   # 1Password
 mas install 430255202   # Mactracker
 mas install 470158793   # Keka

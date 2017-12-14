@@ -47,7 +47,6 @@ brew cask install etcher
 brew cask install caffeine
 brew cask install mactex
 brew cask install sourcetree
-brew cask install things
 
 # Install fonts
 brew tap caskroom/fonts
@@ -73,6 +72,7 @@ mas install 412448059   # ForkLift
 mas install 443987910   # 1Password
 mas install 430255202   # Mactracker
 mas install 470158793   # Keka
+mas install 904280696   # Things 3
 
 # install python stuff
 brew install pyenv

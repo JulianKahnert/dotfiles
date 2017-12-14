@@ -36,6 +36,12 @@ if [ "install" = "$1" ]; then
         vim +BundleInstall +BundleClean +qall
     fi
 
+    # Link font to library and clear font cache for user fonts
+    if [ $SYSTEM = "macOS" ]; then
+        "$DOTDIR/$SYSTEM/settings.sh"
+        "$DOTDIR/.atom/atom-init.sh"
+    fi
+
     # Setup git config
     echo "\n\nSetting up global git config ..."
     git config --global include.path "${DOTDIR}/gitconfig_global"

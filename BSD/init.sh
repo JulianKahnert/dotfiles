@@ -13,5 +13,8 @@ portmaster /usr/ports/shells/zsh
 portmaster /usr/ports/sysutils/ezjail
 
 # install some packages
+pkg update
+pkg upgrade
+pkg install tmux vim zsh
 pkg install security/sudo devel/git editors/vim
 pkg install zfstools

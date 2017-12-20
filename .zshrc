@@ -1,11 +1,9 @@
 # Path to your oh-my-zsh installation.
 export DOTFILES=$HOME/.dotfiles
 export TERM="xterm-256color"
-export WORKON_HOME=~/.envs
 export DISABLE_AUTO_TITLE="true"
 
 # Basic work environment
-export DEFAULT_USER=juliankahnert
 export EDITOR=vim
 export LANG=de_DE.UTF-8
 export DIRSTACKSIZE=10000
@@ -46,20 +44,19 @@ antigen apply
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_DOCKER_SHOW=false
 
 # change background color for each system
 if [ "$(uname)" = "Darwin" ]
 then
-    SPACESHIP_PREFIX_HOST="   "
+    SPACESHIP_HOST_PREFIX="   "
 
 elif [ "$(uname)" = "Linux" ]
 then
-    SPACESHIP_PREFIX_HOST=" 🐧  "
+    SPACESHIP_HOST_PREFIX=" 🐧  "
 
 elif [ "$(uname)" = "FreeBSD" ]
 then
-    SPACESHIP_PREFIX_HOST=" 😈  "
+    SPACESHIP_HOST_PREFIX=" 😈  "
 
 fi
 
@@ -88,6 +85,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 alias ll='ls -lah'
 alias fl='open -a forklift .'
 alias youdl='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best"'
+alias dl-update='~/.dotfiles/dotfiles.sh update'
+alias dl-main='~/.dotfiles/dotfiles.sh maintenance'
 
 # Functions
 # mkrepo - create a new repo + pyenv

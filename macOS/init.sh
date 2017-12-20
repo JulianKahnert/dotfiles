@@ -22,7 +22,6 @@ brew install zsh
 
 # Install more recent versions of some macOS tools.
 brew install vim --override-system-vi
-brew install homebrew/dupes/openssh
 
 # Install other useful binaries.
 brew install git

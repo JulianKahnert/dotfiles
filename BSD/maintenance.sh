@@ -23,10 +23,6 @@ sudo portmaster -y --clean-distfiles
 
 sudo pkg autoremove -y
 
-echo "#   JAILS   ###################################################"
-# Upgrade portstree in jails
-sudo ezjail-admin update -b
-
 echo "#   VULNERABILITIES   #########################################"
 pkg audit -F
 

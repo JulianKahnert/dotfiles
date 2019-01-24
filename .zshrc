@@ -64,11 +64,14 @@ fi
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
+# If you would like oh-my-zsh to automatically upgrade itself without prompting you, set the following:
+DISABLE_UPDATE_PROMPT=true
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE=false
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=7
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"

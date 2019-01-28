@@ -17,6 +17,8 @@
       "open-on-github"
       "synced-sidebar"
       "linter"
+      "linter-pycodestyle"
+      "linter-ui-default"
     ]
     fileEncoding: "utf8"
     ignoredNames: [
@@ -98,7 +100,7 @@
       "E501"
     ]
   "linter-ui-default":
-    panelHeight: 69
+    panelHeight: 300
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":

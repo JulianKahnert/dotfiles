@@ -24,20 +24,12 @@ brew install zsh
 brew install vim --override-system-vi
 
 # Install other useful binaries.
-brew install git
-brew install fzf
-brew install ag
-brew install tmux
-brew install ssh-copy-id
-brew install tree
-brew install htop
+brew install git fzf ag tmux ssh-copy-id tree htop
 brew install mas
+brew install getantibody/tap/antibody
 
-# Install sound stuff.
-brew install lame
-brew install flac
-brew install ffmpeg
-brew install sox
+# Install media stuff.
+brew install gifsicle
 
 # Install caskroom apps.
 brew tap caskroom/versions

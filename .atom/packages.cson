@@ -1,5 +1,4 @@
 packages: [
-  "atom-ide-ui"
   "auto-detect-indentation"
   "autocomplete-python"
   "busy-signal"
@@ -23,6 +22,7 @@ packages: [
   "python-indent"
   "script"
   "ssh-config"
+  "teletype"
   "todo-show"
   "tomorrow-night-eighties-syntax"
 ]

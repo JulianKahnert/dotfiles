@@ -1,19 +1,29 @@
-# Path to your oh-my-zsh installation.
-export DOTFILES=$HOME/.dotfiles
-export TERM="xterm-256color"
-export DISABLE_AUTO_TITLE="true"
+# set some variable
+ZSH_THEME="bira"                # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
+HOMEBREW_NO_ANALYTICS=1               # Avoid homebrew from sending analytics
+HYPHEN_INSENSITIVE="true"             # use hyphen-insensitive completion
+DISABLE_AUTO_UPDATE="false"           # disable bi-weekly auto-update checks
+DISABLE_UPDATE_PROMPT="true"          # disable update prompt
+UPDATE_ZSH_DAYS=7                     # change how often to auto-update (in days)
+ENABLE_CORRECTION="true"              # enable command auto-correction
+COMPLETION_WAITING_DOTS="true"        # display red dots whilst waiting for completion
+DISABLE_UNTRACKED_FILES_DIRTY="true"  # disable marking untracked files under VCS as dirty
+COMPLETION_WAITING_DOTS="false"       # disable wating dots while autocomplete tabbing
 
 # Basic work environment
-export EDITOR=vim
-export LANG=de_DE.UTF-8
-export DIRSTACKSIZE=10000
+TERM="xterm-256color"
+DISABLE_AUTO_TITLE="true"
+EDITOR=vim
+LANG=de_DE.UTF-8
+DIRSTACKSIZE=10000
 
-# Avoid homebrew from sending analytics
-export HOMEBREW_NO_ANALYTICS=1
-
-# User configuration
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-export PATH="$HOME/.pyenv/bin:$PATH"
+# setup paths
+DOTFILES=$HOME/.dotfiles
+ZSH="$DOTFILES/oh-my-zsh"
+ZSH_CUSTOM=$DOTFILES/oh-my-zsh-custom # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+PATH="$HOME/.pyenv/bin:$PATH"
 if [ "$(uname)" = "Darwin" ]
 then
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
@@ -26,60 +36,17 @@ then
 
 fi
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-source $HOME/.dotfiles/antigen/antigen.zsh
-antigen use oh-my-zsh
-antigen bundle colored-man-pages
-antigen bundle dirpersist
-antigen bundle docker
-antigen bundle git
-antigen bundle osx
-antigen bundle sudo
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
-antigen apply
-
-# theme customization
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_PROMPT_SEPARATE_LINE=true
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-
-# change background color for each system
-if [ "$(uname)" = "Darwin" ]
-then
-    SPACESHIP_HOST_PREFIX="   "
-
-elif [ "$(uname)" = "Linux" ]
-then
-    SPACESHIP_HOST_PREFIX=" 🐧  "
-
-elif [ "$(uname)" = "FreeBSD" ]
-then
-    SPACESHIP_HOST_PREFIX=" 😈  "
-
-fi
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=7
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+plugins=(
+  git
+  osx
+  colored-man-pages
+  dirpersist
+  docker
+  sudo
+  zsh-syntax-highlighting
+)
+source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias ll='ls -lah'

@@ -45,6 +45,7 @@ plugins=(
   docker
   sudo
   zsh-syntax-highlighting
+  swiftpm
 )
 source $ZSH/oh-my-zsh.sh
 

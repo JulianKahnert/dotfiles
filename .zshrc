@@ -10,6 +10,7 @@ ENABLE_CORRECTION="true"              # enable command auto-correction
 COMPLETION_WAITING_DOTS="true"        # display red dots whilst waiting for completion
 DISABLE_UNTRACKED_FILES_DIRTY="true"  # disable marking untracked files under VCS as dirty
 COMPLETION_WAITING_DOTS="false"       # disable wating dots while autocomplete tabbing
+ENABLE_CORRECTION="false"
 
 # Basic work environment
 TERM="xterm-256color"

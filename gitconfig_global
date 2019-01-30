@@ -5,7 +5,7 @@
     editor = vim
     precomposeunicode = true
     pager = less -FX
-    autocrlf = input
+    autocrlf = false
 
 [push]
     default = simple
@@ -13,3 +13,6 @@
 [diff "wrap"]
     textconv = fmt -w80
     prompt = false
+
+[credential]
+    helper = osxkeychain

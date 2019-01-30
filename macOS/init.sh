@@ -65,6 +65,7 @@ mas install 443987910   # 1Password
 mas install 430255202   # Mactracker
 mas install 470158793   # Keka
 mas install 904280696   # Things 3
+mas install 441258766   # Magnet
 
 # install python stuff
 brew install pyenv
@@ -74,3 +75,6 @@ brew install pyenv-virtualenv
 # use osxkeychain for git credentials
 # https://stackoverflow.com/a/39159951
 git config --global credential.helper osxkeychain
+
+# To install useful FZF key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install

@@ -9,6 +9,7 @@ echo "---------------------------------------------------------------"
 brew update
 brew doctor
 brew upgrade
+brew cask upgrade
 brew cleanup
 
 echo "---------------------------------------------------------------"

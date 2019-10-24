@@ -102,6 +102,23 @@ cdh() {
   eval cd "$( ( dirs -v ) | fzf +s --tac | sed 's/ *[0-9]* *//')"
 }
 
+# gitsavetemp - save current state of the repository on origin
+gitsavetemp() {
+  git branch temporary-state-branch
+  git checkout temporary-state-branch
+  git add --all
+  git commit -m "temporary commit to save current state"
+  git push --set-upstream origin temporary-state-branch
+}
+
+# gitloadtemp - load the latest state of the repository from origin
+gitloadtemp() {
+  git checkout @{-1}
+  git cherry-pick temporary-state-branch --no-commit
+  git branch --delete --force temporary-state-branch
+  git push origin --delete temporary-state-branch
+}
+
 # fkill - kill process
 fkill() {
   local pid

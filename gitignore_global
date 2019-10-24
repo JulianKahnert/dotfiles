@@ -9,6 +9,3 @@
 __pycache__
 .DS_Store
 .venv
-*.xcuserstate
-*.xcworkspacedata
-*.xcbkptlist

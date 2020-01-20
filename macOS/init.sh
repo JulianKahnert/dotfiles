@@ -24,7 +24,7 @@ brew install zsh
 brew install vim --override-system-vi
 
 # Install other useful binaries.
-brew install git fzf ag tmux ssh-copy-id tree htop
+brew install git fzf ag tmux ssh-copy-id tree htop fd bat
 brew install mas
 brew install getantibody/tap/antibody
 

@@ -23,8 +23,9 @@ DIRSTACKSIZE=10000
 DOTFILES=$HOME/.dotfiles
 ZSH="$DOTFILES/oh-my-zsh"
 ZSH_CUSTOM=$DOTFILES/oh-my-zsh-custom # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 if [ "$(uname)" = "Darwin" ]
 then
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
@@ -47,6 +48,7 @@ plugins=(
   sudo
   zsh-syntax-highlighting
   swiftpm
+  kubectl
 )
 source $ZSH/oh-my-zsh.sh
 

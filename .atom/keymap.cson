@@ -34,3 +34,7 @@
 ## markdown
 'atom-text-editor[data-grammar~="gfm"]':
   'cmd-b': 'markdown-preview:toggle'
+
+## AsciiDoc
+# 'atom-text-editor[data-grammar="adoc"]':
+#   'cmd-b': 'asciidoc-preview:toggle'

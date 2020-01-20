@@ -6,7 +6,7 @@ Install before `dotfiles.sh install` to avoid glitches!
 # Installation
 macOS: choose the the path to zsh in Terminal.app preferences
 ```
-git clone https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
+git clone --recurse-submodules https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install
 ```
 Also needed:

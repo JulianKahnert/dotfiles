@@ -10,6 +10,7 @@ ENABLE_CORRECTION="true"              # enable command auto-correction
 COMPLETION_WAITING_DOTS="true"        # display red dots whilst waiting for completion
 DISABLE_UNTRACKED_FILES_DIRTY="true"  # disable marking untracked files under VCS as dirty
 COMPLETION_WAITING_DOTS="false"       # disable wating dots while autocomplete tabbing
+ENABLE_CORRECTION="false"
 
 # Basic work environment
 TERM="xterm-256color"
@@ -22,8 +23,9 @@ DIRSTACKSIZE=10000
 DOTFILES=$HOME/.dotfiles
 ZSH="$DOTFILES/oh-my-zsh"
 ZSH_CUSTOM=$DOTFILES/oh-my-zsh-custom # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 if [ "$(uname)" = "Darwin" ]
 then
     export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
@@ -45,6 +47,8 @@ plugins=(
   docker
   sudo
   zsh-syntax-highlighting
+  swiftpm
+  kubectl
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -98,6 +102,23 @@ cdf() {
 # cdh - fuzzy matching in folder history
 cdh() {
   eval cd "$( ( dirs -v ) | fzf +s --tac | sed 's/ *[0-9]* *//')"
+}
+
+# gitsavetemp - save current state of the repository on origin
+gitsavetemp() {
+  git branch temporary-state-branch
+  git checkout temporary-state-branch
+  git add --all
+  git commit -m "temporary commit to save current state"
+  git push --set-upstream origin temporary-state-branch
+}
+
+# gitloadtemp - load the latest state of the repository from origin
+gitloadtemp() {
+  git checkout @{-1}
+  git cherry-pick temporary-state-branch --no-commit
+  git branch --delete --force temporary-state-branch
+  git push origin --delete temporary-state-branch
 }
 
 # fkill - kill process

@@ -14,6 +14,7 @@ brew upgrade --all
 
 # Install Z shell.
 brew install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew install zsh-syntax-hightlighting
 
 # Install more recent versions of some macOS tools.
@@ -22,19 +23,18 @@ brew install vim --override-system-vi
 # Install other useful binaries.
 brew install git openssh fzf ag tmux ssh-copy-id tree htop fd bat
 brew install mas
+brew install appcleaner
+brew install caffeine
+brew install sourcetree
+brew install visual-studio-code
 
-# Install caskroom apps.
-brew tap caskroom/versions
-brew cask install appcleaner
-brew cask install caffeine
-brew cask install sourcetree
 
 # Install fonts
-brew tap caskroom/fonts
-brew cask install font-fantasque-sans-mono
-brew cask install font-input
-brew cask install font-source-code-pro
-brew cask install font-fontawesome
+brew tap homebrew/cask-fonts
+brew install font-fantasque-sans-mono
+brew install font-input
+brew install font-source-code-pro
+brew install font-fontawesome
 
 # Link installed apps.
 brew linkapps
@@ -47,7 +47,6 @@ brew cleanup
 mas install 409203825   # Numbers
 mas install 409201541   # Pages
 mas install 409183694   # Keynote
-mas install 408981434   # iMovie
 mas install 443987910   # 1Password
 mas install 470158793   # Keka
 mas install 904280696   # Things 3

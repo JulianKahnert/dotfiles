@@ -20,7 +20,6 @@ if [ "install" = "$1" ]; then
 
     # Create symlinks into the home dir to enable usage of the files
     ln -sf "$DOTDIR/.zshrc"     	"$HOME"
-    ln -sf "$DOTDIR/.vim"       	"$HOME"
     ln -sf "$DOTDIR/.vimrc"			"$HOME"
     ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
 

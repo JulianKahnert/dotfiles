@@ -1,22 +1,5 @@
 " *** VIM CONFIG FILE ***
 
-set nocompatible              " required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" comment with shortcut
-Plugin 'vim-scripts/tcomment'
-" bracket auto closing
-Plugin 'itmammoth/doorboy.vim'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-highlight BadWhitespace ctermbg=red guibg=red
-
 " SYNTAX HIGHLIGHTING
 syntax on
 " COLOR SCHEMES

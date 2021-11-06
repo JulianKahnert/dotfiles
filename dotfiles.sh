@@ -48,9 +48,9 @@ if [ "install" = "$1" ]; then
     git config --global core.attributesfile "${DOTDIR}/gitattributes_global"
 
 elif [ "update" = "$1" ]; then
-    # set repo to current master branch
-    git reset --hard master
-    git pull --rebase --stat origin master
+    # set repo to current main branch
+    git reset --hard main
+    git pull --rebase --stat origin main
     # delete all untracked folders, e.g. old submodules
     git clean -f -f -d
     # initialize new submodules

@@ -24,19 +24,6 @@ DOTFILES=$HOME/.dotfiles
 ZSH="$DOTFILES/oh-my-zsh"
 ZSH_CUSTOM=$DOTFILES/oh-my-zsh-custom # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
-if [ "$(uname)" = "Darwin" ]
-then
-    export PATH="$PATH:/usr/local/texlive/2016/bin/universal-darwin"
-    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
-
-elif [ "$(uname)" = "Linux" ]
-then
-    # python pip module path (--user)
-    export PATH="$HOME/.local/bin:$PATH"
-
-fi
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(
@@ -136,16 +123,6 @@ fkill() {
 agrepl() {
   ag -0 -l "$1" | xargs -0 sed -E -i '' 's/'$1'/'$2'/g'
 }
-
-# pyenv stuff
-if which pyenv > /dev/null
-then
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-    export SPACESHIP_VENV_SHOW=false
-
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
 
 # user fuzzy finder "fzf"
 if which fzf > /dev/null

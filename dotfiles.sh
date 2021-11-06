@@ -23,7 +23,6 @@ if [ "install" = "$1" ]; then
     ln -sf "$DOTDIR/.vim"       	"$HOME"
     ln -sf "$DOTDIR/.vimrc"			"$HOME"
     ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
-    ln -sf "$DOTDIR/.atom"          "$HOME"
 
     # install some other stuff
     echo "Password requried for the following steps:"

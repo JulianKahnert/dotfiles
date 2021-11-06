@@ -10,11 +10,10 @@ sudo -v
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # Install zsh and oh-my-zsh.
 brew install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew install zsh-syntax-hightlighting
 
 # Install more recent versions of some macOS tools.

@@ -1,5 +1,5 @@
-# set some variable
-ZSH_THEME="bira"                # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# set some variables
+ZSH_THEME="bira"
 
 HOMEBREW_NO_ANALYTICS=1               # Avoid homebrew from sending analytics
 HYPHEN_INSENSITIVE="true"             # use hyphen-insensitive completion
@@ -22,21 +22,20 @@ DIRSTACKSIZE=10000
 # setup paths
 DOTFILES=$HOME/.dotfiles
 ZSH="$DOTFILES/oh-my-zsh"
-ZSH_CUSTOM=$DOTFILES/oh-my-zsh-custom # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 export PATH="/usr/local/sbin:$PATH"
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(
   git
-  osx
+  macos
   colored-man-pages
   dirpersist
   docker
   sudo
-  zsh-syntax-highlighting
   swiftpm
   kubectl
 )
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 
 # Aliases

@@ -1,6 +1,5 @@
 My personal set of config files for vim & zsh
 
-Requiered packages: `vim zsh tmux`
 Install before `dotfiles.sh install` to avoid glitches!
 
 # Installation
@@ -9,10 +8,6 @@ macOS: choose the the path to zsh in Terminal.app preferences
 git clone --recurse-submodules https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install
 ```
-Also needed:
-* Python: `pip install flake8 pycodestyle`
-* LaTex: `brew cask install mactex`
-* Search Tools: `brew install the_silver_searcher fzf`
 
 # Update dotfiles
 ```

@@ -12,7 +12,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
-# Install Z shell.
+# Install zsh and oh-my-zsh.
 brew install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew install zsh-syntax-hightlighting
@@ -21,7 +21,7 @@ brew install zsh-syntax-hightlighting
 brew install vim --override-system-vi
 
 # Install other useful binaries.
-brew install git openssh fzf ag tmux ssh-copy-id tree htop fd bat
+brew install git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat
 brew install mas
 brew install appcleaner
 brew install caffeine

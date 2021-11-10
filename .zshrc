@@ -22,7 +22,7 @@ DIRSTACKSIZE=10000
 # setup paths
 DOTFILES=$HOME/.dotfiles
 ZSH="$DOTFILES/oh-my-zsh"
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.mint/bin:$PATH"
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(
@@ -35,7 +35,7 @@ plugins=(
   swiftpm
   kubectl
 )
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source $ZSH/oh-my-zsh.sh
 
 # Aliases

@@ -12,28 +12,16 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# Install zsh and oh-my-zsh.
-brew install zsh
-brew install zsh-syntax-hightlighting
-
-# Install more recent versions of some macOS tools.
-brew install vim --override-system-vi
-
-# Install other useful binaries.
-brew install git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat
-brew install mas
-brew install appcleaner
-brew install caffeine
-brew install sourcetree
-brew install visual-studio-code
+# Install zsh and some other useful tools
+brew install zsh zsh-syntax-highlighting \
+	vim git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat \
+	mas appcleaner caffeine \
+	sourcetree visual-studio-code
 
 
 # Install fonts
 brew tap homebrew/cask-fonts
-brew install font-fantasque-sans-mono
-brew install font-input
-brew install font-source-code-pro
-brew install font-fontawesome
+brew install font-fantasque-sans-mono font-input font-source-code-pro font-fontawesome
 
 # Link installed apps.
 brew linkapps
@@ -46,7 +34,6 @@ brew cleanup
 mas install 409203825   # Numbers
 mas install 409201541   # Pages
 mas install 409183694   # Keynote
-mas install 443987910   # 1Password
 mas install 470158793   # Keka
 mas install 904280696   # Things 3
 mas install 441258766   # Magnet

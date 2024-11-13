@@ -4,16 +4,6 @@
 cd "$(dirname "$0")" || exit
 DOTDIR=$(pwd)
 
-if [ "$(uname)" = "Darwin" ]; then
-    SYSTEM="macOS"
-elif [ "$(uname)" = "Linux" ]; then
-    SYSTEM="Linux"
-elif [ "$(uname)" = "FreeBSD" ]; then
-    SYSTEM="BSD"
-else
-    exit 1
-fi
-
 if [ "install" = "$1" ]; then
     # Update all submodules
     git submodule init && git submodule update
@@ -22,10 +12,11 @@ if [ "install" = "$1" ]; then
     ln -sf "$DOTDIR/.zshrc"     	"$HOME"
     ln -sf "$DOTDIR/.vimrc"			"$HOME"
     ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
+    ln -sf "$DOTDIR/config" 	    "$HOME/.config"
 
     # install some other stuff
     echo "Password requried for the following steps:"
-    bash "$DOTDIR/$SYSTEM/init.sh"
+    bash "$DOTDIR/macOS/init.sh"
 
     # Install vim packages
     if which vim > /dev/null
@@ -34,10 +25,7 @@ if [ "install" = "$1" ]; then
     fi
 
     # Link font to library and clear font cache for user fonts
-    if [ $SYSTEM = "macOS" ]; then
-        "$DOTDIR/$SYSTEM/settings.sh"
-        "$DOTDIR/.atom/atom-init.sh"
-    fi
+    "$DOTDIR/macOS/settings.sh"
 
     # Setup git config
     echo "\n\nSetting up global git config ..."
@@ -60,21 +48,17 @@ elif [ "update" = "$1" ]; then
         vim +BundleUpdate +BundleClean +qall
     fi
     # Link font to library and clear font cache for user fonts
-    if [ $SYSTEM = "macOS" ]; then
-        "$DOTDIR/$SYSTEM/settings.sh"
-    fi
+    "$DOTDIR/macOS/settings.sh"
 
 elif [ "info" = "$1" ]; then
-    "$DOTDIR/$SYSTEM/info.sh"
+    "$DOTDIR/macOS/info.sh"
 
 elif [ "maintenance" = "$1" ]; then
-    "$DOTDIR/$SYSTEM/maintenance.sh"
+    "$DOTDIR/macOS/maintenance.sh"
 
 elif [ "init" = "$1" ]; then
-    "$DOTDIR/$SYSTEM/init.sh"
-    if [ $SYSTEM = "macOS" ]; then
-        "$DOTDIR/$SYSTEM/settings.sh"
-    fi
+    "$DOTDIR/macOS/init.sh"
+    "$DOTDIR/macOS/settings.sh"
 
 else
     cat "$DOTDIR/README.md"

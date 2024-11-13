@@ -15,7 +15,4 @@ echo "---------------------------------------------------------------"
 # keep MacAppStore Apps up-to-date
 mas upgrade
 
-echo "#   TIME MACHINE BACKUP   #####################################"
-# start Time Machine backup
-#tmutil startbackup
 echo "###############################################################"

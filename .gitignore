@@ -1,4 +1,2 @@
-config/zed/*
-!config/zed/settings.json
-config/github-copilot
-config/gtk-2.0
+# you have to pick the specific files you want to track
+config/*

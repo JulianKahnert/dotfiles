@@ -11,10 +11,12 @@ brew upgrade
 
 # Install zsh and some other useful tools
 brew install zsh-syntax-highlighting \
-	vim git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat \
+	git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat \
 	mas appcleaner caffeine \
 	fork zed
 
+# Install more recent versions of some macOS tools.
+brew install vim --override-system-vi
 
 # Install fonts
 brew install font-fantasque-sans-mono font-input font-source-code-pro font-fontawesome

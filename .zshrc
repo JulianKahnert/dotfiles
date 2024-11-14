@@ -30,10 +30,7 @@ plugins=(
   macos
   colored-man-pages
   dirpersist
-  docker
   sudo
-  swiftpm
-  kubectl
 )
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source $ZSH/oh-my-zsh.sh

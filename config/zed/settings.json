@@ -5,18 +5,24 @@
 //
 // To see all of Zed's default settings without changing your
 // custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
+// command palette
 {
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "assistant": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "llama3.2:latest"
+    },
+    "version": "2"
+  },
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "vim_mode": true,
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
   "theme": {
     "mode": "system",
     "light": "One Light",
     "dark": "One Dark"
-  },
-  "languages": {
-    "Plain Text": {
-      "soft_wrap": "none"
-    }
   }
 }

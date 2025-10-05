@@ -12,6 +12,7 @@ if [ "install" = "$1" ]; then
     ln -sf "$DOTDIR/.zshrc"     	"$HOME"
     ln -sf "$DOTDIR/.vimrc"			"$HOME"
     ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
+    ln -sf "$DOTDIR/.claude"        "$HOME"
     ln -sf "$DOTDIR/config" 	    "$HOME/.config"
 
     # install some other stuff

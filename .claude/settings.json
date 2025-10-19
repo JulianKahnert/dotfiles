@@ -2,17 +2,19 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "Bash(swift build:*)",
       "mcp__apple-docs__discover_technologies",
       "mcp__apple-docs__choose_technology",
       "mcp__apple-docs__get_documentation",
       "mcp__apple-docs__search_symbols",
       "Bash(cat:*)",
+      "Bash(swift build:*)",
       "Bash(swiftlint lint:*)",
       "Bash(swiftlint:*)",
+      "Bash(license-plist:*)",
       "Bash(xcodebuild:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,4 +1,10 @@
 # you have to pick the specific files you want to track
 config/*
-.claude/*
-!.claude/settings.json
+.claude/debug
+.claude/file-history
+.claude/history.jsonl
+.claude/projects
+.claude/session-env
+.claude/shell-snapshots
+.claude/statsig
+.claude/todos

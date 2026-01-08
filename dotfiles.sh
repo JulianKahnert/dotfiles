@@ -19,10 +19,10 @@ if [ "install" = "$1" ]; then
     echo "Password requried for the following steps:"
     bash "$DOTDIR/macOS/init.sh"
 
-    # Install vim packages
+    # Install vim packages via vim-plug
     if which vim > /dev/null
     then
-        vim +BundleInstall +BundleClean +qall
+        vim +PlugInstall +PlugClean! +qall
     fi
 
     # Link font to library and clear font cache for user fonts
@@ -43,10 +43,10 @@ elif [ "update" = "$1" ]; then
     # initialize new submodules
     git submodule init && git submodule update
 
-    # update vim
+    # update vim plugins
     if which vim > /dev/null
     then
-        vim +BundleUpdate +BundleClean +qall
+        vim +PlugUpdate +PlugUpgrade +PlugClean! +qall
     fi
     # Link font to library and clear font cache for user fonts
     "$DOTDIR/macOS/settings.sh"

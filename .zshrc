@@ -130,11 +130,9 @@ then
     export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
 fi
 
-# start tmux (via alias) if not on a mac
-if which tmux > /dev/null
-then
-    if ! { [ -z $SSH_CONNECTION ] } && ! { [ -n "$TMUX" ]; }
-    then
-        eval "tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit"
-    fi
-fi
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+export PATH="$HOME/.local/bin:$PATH"

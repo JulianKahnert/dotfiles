@@ -19,8 +19,8 @@ Plug 'airblade/vim-gitgutter'
 " Python code folding with docstring preview
 Plug 'tmhedberg/SimpylFold'
 
-" Nightfly colorscheme
-Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+" Swift syntax highlighting and indentation
+Plug 'keith/swift.vim'
 
 call plug#end()
 
@@ -50,8 +50,6 @@ syntax on
 
 " COLOR SCHEMES
 set background=dark
-set termguicolors
-colorscheme nightfly
 
 " allow crontab editing on macOS
 autocmd filetype crontab setlocal nobackup nowritebackup
@@ -68,9 +66,23 @@ set signcolumn=yes
 " Enhance command-line completion
 set wildmenu
 
-" Highlight current line
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+" Show command in bottom bar
+set showcmd
+
+" Show cursor position
+set ruler
+
+" Always show status line
+set laststatus=2
+
+" Allow buffer switching without saving
+set hidden
+
+" Better backspace behavior
+set backspace=indent,eol,start
+
+" Highlight current line (let colorscheme handle colors)
+" set cursorline
 
 " Set to auto read when file is changed from the outside
 set autoread
@@ -78,8 +90,14 @@ set autoread
 " Ignore case when searching
 set ignorecase
 
+" Smart case: case-sensitive if uppercase is used
+set smartcase
+
 " Highlight search results
 set hlsearch
+
+" Incremental search (search as you type)
+set incsearch
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -94,9 +112,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
+" Linebreak on 120 characters
 set lbr
-set tw=500
+set tw=120
 
 " Auto indent
 set ai
@@ -110,6 +128,20 @@ set wrap
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+
+" Disable backup files
+set nobackup
+set nowritebackup
+
+" Disable swap files
+set noswapfile
+
+" Keep undo history
+set undofile
+set undodir=~/.vim/undo
+if !isdirectory(&undodir)
+  call mkdir(&undodir, "p", 0700)
+endif
 
 " ============================================================================
 " KEY MAPPINGS

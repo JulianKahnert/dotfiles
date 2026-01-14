@@ -8,3 +8,6 @@ config/*
 .claude/shell-snapshots
 .claude/statsig
 .claude/todos
+.claude/local
+.vim/undo
+.vim/plugged

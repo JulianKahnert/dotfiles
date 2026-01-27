@@ -159,12 +159,3 @@ nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
 nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 
-" Remove arrow key mappings to force using hjkl
-noremap <up> <Nop>
-noremap <down> <Nop>
-noremap <left> <Nop>
-noremap <right> <Nop>
-vnoremap <up> <Nop>
-vnoremap <down> <Nop>
-vnoremap <left> <Nop>
-vnoremap <right> <Nop>

@@ -6,11 +6,9 @@ HYPHEN_INSENSITIVE="true"             # use hyphen-insensitive completion
 DISABLE_AUTO_UPDATE="false"           # disable bi-weekly auto-update checks
 DISABLE_UPDATE_PROMPT="true"          # disable update prompt
 UPDATE_ZSH_DAYS=7                     # change how often to auto-update (in days)
-ENABLE_CORRECTION="true"              # enable command auto-correction
-COMPLETION_WAITING_DOTS="true"        # display red dots whilst waiting for completion
+COMPLETION_WAITING_DOTS="false"       # disable waiting dots while autocomplete tabbing
+ENABLE_CORRECTION="false"             # disable command auto-correction
 DISABLE_UNTRACKED_FILES_DIRTY="true"  # disable marking untracked files under VCS as dirty
-COMPLETION_WAITING_DOTS="false"       # disable wating dots while autocomplete tabbing
-ENABLE_CORRECTION="false"
 
 # Basic work environment
 TERM="xterm-256color"
@@ -22,7 +20,9 @@ DIRSTACKSIZE=10000
 # setup paths
 DOTFILES=$HOME/.dotfiles
 ZSH="$DOTFILES/oh-my-zsh"
-export PATH="/usr/local/sbin:$HOME/.mint/bin:$PATH"
+
+# Consolidate PATH exports
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:$HOME/.mint/bin:$HOME/.local/bin:$PATH"
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(
@@ -32,8 +32,29 @@ plugins=(
   dirpersist
   sudo
 )
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# Load zsh-syntax-highlighting if available
+if command -v brew &> /dev/null; then
+    SYNTAX_HL="$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    [ -f "$SYNTAX_HL" ] && source "$SYNTAX_HL"
+fi
 source $ZSH/oh-my-zsh.sh
+
+# user fuzzy finder "fzf"
+if which fzf > /dev/null
+then
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    # don't exclude hidden files, but .git folders
+    export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
+fi
+
+# start tmux (via alias) if not on a mac
+if which tmux > /dev/null
+then
+    if ! { [ -z $SSH_CONNECTION ] } && ! { [ -n "$TMUX" ]; }
+    then
+        eval "tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit"
+    fi
+fi
 
 # Aliases
 alias ll='ls -lah'
@@ -42,37 +63,46 @@ alias youdl='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best"'
 alias dl-update='~/.dotfiles/dotfiles.sh update'
 alias dl-main='~/.dotfiles/dotfiles.sh maintenance'
 
-# Functions
-# mkrepo - create a new repo + pyenv
-mkrepo () {
-    NAME="$*"
-    # folder
-    if [ -d "$NAME" ]; then
-        echo "\nfolder already exists!"
-    else
-        echo "generate folder and change directory:"
-        mkdir $NAME
-    fi
-    cd $NAME
+## Functions
 
-    # repository
-    if [ -d .git ]; then
-        echo "\nrepo already exists!"
-    else
-        echo "\ninitialize repo:"
-        git init
+removeUntrackedGitBranches() {
+    git branch -r --merged | grep -v "dev" | grep -v "next" | grep -v "master" | grep -v "main" | sed 's/origin\///' | xargs -n 1 git push origin --delete && git fetch --prune
+}
+
+createPr() {
+    # Find the first commit with EMP- ticket
+    local commit=$(git log --format=%B -n 5 | grep "EMP-" | head -n 1)
+
+    if [[ -z "$commit" ]]; then
+        echo "Error: No commit with EMP- ticket found in the last 5 commits"
+        return 1
     fi
 
-    # virtual environment
-    if which pyenv > /dev/null; then
-        if [ -f .python-version ]; then
-            echo "\nvirtualenv already exists!"
-        else
-            echo "\ncreate a virtualenv:"
-            pyenv virtualenv $NAME
-            pyenv local $NAME
-        fi
+    # Extract ticket number
+    local ticket=$(echo "$commit" | grep -o -E 'EMP-[0-9]{1,5}')
+
+    # Create PR and capture all output (including stderr for warnings)
+    local pr_output=$(gh pr create --title "$commit" --body "https://ewe-go.atlassian.net/browse/$ticket" 2>&1)
+
+    # Extract PR URL from output (works for both new and existing PRs)
+    local pr_url=$(echo "$pr_output" | grep -o 'https://github.com[^[:space:]]*' | tail -n 1)
+
+    if [[ -z "$pr_url" ]]; then
+        echo "Error: Could not extract PR URL from output:"
+        echo "$pr_output"
+        return 1
     fi
+
+    # Create Slack markdown string with Markdown links
+    local slack_message="🔍 [$ticket](https://ewe-go.atlassian.net/browse/$ticket) ist bereit zum Codereview: [PR]($pr_url)"
+
+    # Copy to clipboard
+    echo "$slack_message" | pbcopy
+
+    # Print confirmation
+    echo "✓ PR URL: $pr_url"
+    echo "✓ Slack message copied to clipboard:"
+    echo "$slack_message"
 }
 
 # cdf - cd into the directory of the selected file
@@ -85,25 +115,6 @@ cdf() {
 # cdh - fuzzy matching in folder history
 cdh() {
   eval cd "$( ( dirs -v ) | fzf +s --tac | sed 's/ *[0-9]* *//')"
-}
-
-# gitsavetemp - save current state of the repository on origin
-gitsavetemp() {
-  username=$(git config --global user.name | awk '{print tolower($0)}' | sed 's/ //g')
-  git branch $username-temporary-state-branch
-  git checkout $username-temporary-state-branch
-  git add --all
-  git commit -m "temporary commit to save current state"
-  git push --set-upstream origin $username-temporary-state-branch
-}
-
-# gitloadtemp - load the latest state of the repository from origin
-gitloadtemp() {
-  username=$(git config --global user.name | awk '{print tolower($0)}' | sed 's/ //g')
-  git checkout @{-1}
-  git cherry-pick $username-temporary-state-branch --no-commit
-  git branch --delete --force $username-temporary-state-branch
-  git push origin --delete $username-temporary-state-branch
 }
 
 # fkill - kill process
@@ -122,17 +133,21 @@ agrepl() {
   ag -0 -l "$1" | xargs -0 sed -E -i '' 's/'$1'/'$2'/g'
 }
 
-# user fuzzy finder "fzf"
-if which fzf > /dev/null
-then
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-    # don't exclude hidden files, but .git folders
-    export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
-fi
 
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# Function to display the tickets since the last Git tag
+ticketsSinceLastGitTag() {
+    if [ -d .git ]; then
+        git log --oneline $(git describe --tags --abbrev=0)..@ | grep -oE '\bEMP-[0-9]{1,5}\b' | cut -d'-' -f2 | sort -u
+    else
+        echo "Error: This is not a Git repository."
+    fi
+}
 
-
-export PATH="$HOME/.local/bin:$PATH"
+# Function to open the ticket URLs since the last Git tag
+ticketUrlsSinceLastGitTag() {
+    if [ -d .git ]; then
+        git log --oneline $(git describe --tags --abbrev=0)..@ | grep -oE '\bEMP-[0-9]{1,5}\b' | cut -d'-' -f2 | sort -u | sed 's|^|https://ewe-go.atlassian.net/browse/EMP-|' | while read -r url; do open "$url"; done
+    else
+        echo "Error: This is not a Git repository."
+    fi
+}

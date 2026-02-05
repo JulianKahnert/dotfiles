@@ -1,5 +1,6 @@
 # you have to pick the specific files you want to track
 config/*
+!config/nvim
 .claude/debug
 .claude/file-history
 .claude/history.jsonl
@@ -11,3 +12,5 @@ config/*
 .claude/local
 .vim/undo
 .vim/plugged
+config/nvim/lazyvim.json
+config/nvim/lazy-lock.json

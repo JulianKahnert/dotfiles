@@ -6,6 +6,11 @@
   // To see all of Zed's default settings without changing your
   // custom settings, run `zed: open default settings` from the
   // command palette (cmd-shift-p / ctrl-shift-p)
+  "agent_servers": {
+    "claude": {
+      "default_model": "sonnet"
+    }
+  },
   "relative_line_numbers": "enabled",
   "vim_mode": true,
   "format_on_save": "on",

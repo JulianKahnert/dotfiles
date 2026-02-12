@@ -1,19 +1,9 @@
 # set some variables
 ZSH_THEME="bira"
-
-HOMEBREW_NO_ANALYTICS=1               # Avoid homebrew from sending analytics
-HYPHEN_INSENSITIVE="true"             # use hyphen-insensitive completion
-DISABLE_AUTO_UPDATE="false"           # disable bi-weekly auto-update checks
-DISABLE_UPDATE_PROMPT="true"          # disable update prompt
-UPDATE_ZSH_DAYS=7                     # change how often to auto-update (in days)
-COMPLETION_WAITING_DOTS="false"       # disable waiting dots while autocomplete tabbing
-ENABLE_CORRECTION="false"             # disable command auto-correction
-DISABLE_UNTRACKED_FILES_DIRTY="true"  # disable marking untracked files under VCS as dirty
+export HOMEBREW_NO_ANALYTICS=1               # Avoid homebrew from sending analytics
 
 # Basic work environment
-TERM="xterm-256color"
-DISABLE_AUTO_TITLE="true"
-EDITOR=vim
+EDITOR=nvim
 LANG=de_DE.UTF-8
 DIRSTACKSIZE=10000
 
@@ -39,21 +29,26 @@ if command -v brew &> /dev/null; then
 fi
 source $ZSH/oh-my-zsh.sh
 
+# Override oh-my-zsh termsupport: path is shown via Terminal.app settings,
+# so we clear the tab title when idle and show the full command while running.
+function omz_termsupport_precmd {
+  [[ "${DISABLE_AUTO_TITLE:-}" != true ]] || return
+  title "" ""
+}
+# Show full command with arguments (e.g. "yarn start") in tab title while running
+function omz_termsupport_preexec {
+  [[ "${DISABLE_AUTO_TITLE:-}" != true ]] || return
+  emulate -L zsh
+  local LINE="${2:gs/%/%%}"
+  title "$LINE" "%100>...>${LINE}%<<"
+}
+
 # user fuzzy finder "fzf"
 if which fzf > /dev/null
 then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
     # don't exclude hidden files, but .git folders
     export FZF_DEFAULT_COMMAND='ag --hidden --path-to-ignore ~/.dotfiles/agignore.txt -g ""'
-fi
-
-# start tmux (via alias) if not on a mac
-if which tmux > /dev/null
-then
-    if ! { [ -z $SSH_CONNECTION ] } && ! { [ -n "$TMUX" ]; }
-    then
-        eval "tmux -f ~/.dotfiles/.tmux.conf attach && exit || tmux -f ~/.dotfiles/.tmux.conf new-session && exit"
-    fi
 fi
 
 # Aliases

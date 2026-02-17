@@ -2,24 +2,39 @@
     name = Julian Kahnert
 
 [core]
-    editor = vim
+    # Normalize unicode filenames on macOS (handles umlauts correctly)
     precomposeunicode = true
+    # -F: exit immediately if output fits on screen, -X: don't clear screen on exit
     pager = less -FX
-    autocrlf = false
 
 [push]
-    default = simple
+    # Automatically set upstream tracking on first push
     autoSetupRemote = true
 
-[diff "wrap"]
-    textconv = fmt -w80
-    prompt = false
-
 [rebase]
+    # Automatically stash/unstash uncommitted changes before/after rebase
     autoStash = true
 
 [pull]
+    # Rebase instead of merge on pull for a linear commit history
     rebase = true
 
-[credential]
-    helper = osxkeychain
+[init]
+    # Use "main" instead of "master" for new repositories
+    defaultBranch = main
+
+[merge]
+    # Show base, ours, and theirs in conflict markers for easier resolution
+    conflictstyle = zdiff3
+
+[rerere]
+    # Remember conflict resolutions and reapply them automatically
+    enabled = true
+
+[diff]
+    # Better diffs, especially for moved code blocks
+    algorithm = histogram
+
+[fetch]
+    # Automatically remove remote-tracking branches that no longer exist on the remote
+    prune = true

@@ -15,5 +15,11 @@
     textconv = fmt -w80
     prompt = false
 
+[rebase]
+    autoStash = true
+
+[pull]
+    rebase = true
+
 [credential]
     helper = osxkeychain

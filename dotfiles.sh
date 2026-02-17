@@ -10,8 +10,6 @@ if [ "install" = "$1" ]; then
 
     # Create symlinks into the home dir to enable usage of the files
     ln -sf "$DOTDIR/.zshrc"     	"$HOME"
-    ln -sf "$DOTDIR/.vimrc"			"$HOME"
-    ln -sf "$DOTDIR/.tmux.conf" 	"$HOME"
     ln -sf "$DOTDIR/.claude"        "$HOME"
     ln -sf "$DOTDIR/config" 	    "$HOME/.config"
 
@@ -19,20 +17,12 @@ if [ "install" = "$1" ]; then
     echo "Password requried for the following steps:"
     bash "$DOTDIR/macOS/init.sh"
 
-    # Install vim packages via vim-plug
-    if which vim > /dev/null
-    then
-        vim +PlugInstall +PlugClean! +qall
-    fi
-
     # Link font to library and clear font cache for user fonts
     "$DOTDIR/macOS/settings.sh"
 
     # Setup git config
     echo "\n\nSetting up global git config ..."
     git config --global include.path "${DOTDIR}/gitconfig_global"
-    git config --global core.excludesfile "${DOTDIR}/gitignore_global"
-    git config --global core.attributesfile "${DOTDIR}/gitattributes_global"
 
 elif [ "update" = "$1" ]; then
     # set repo to current main branch
@@ -43,11 +33,6 @@ elif [ "update" = "$1" ]; then
     # initialize new submodules
     git submodule init && git submodule update
 
-    # update vim plugins
-    if which vim > /dev/null
-    then
-        vim +PlugUpdate +PlugUpgrade +PlugClean! +qall
-    fi
     # Link font to library and clear font cache for user fonts
     "$DOTDIR/macOS/settings.sh"
 

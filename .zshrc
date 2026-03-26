@@ -53,7 +53,7 @@ fi
 
 # Aliases
 alias ll='ls -lah'
-alias fl='open -a forklift .'
+alias gg='lazygit'
 alias youdl='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best"'
 alias dl-update='~/.dotfiles/dotfiles.sh update'
 alias dl-main='~/.dotfiles/dotfiles.sh maintenance'

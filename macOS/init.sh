@@ -11,15 +11,15 @@ brew upgrade
 
 # Install zsh and some other useful tools
 brew install zsh-syntax-highlighting \
-	git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat \
-	mas appcleaner caffeine \
-	fork zed
+    git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat \
+    mas appcleaner caffeine \
+    fork zed lazygit
 
 # Install more recent versions of some macOS tools.
 brew install vim --override-system-vi
 
 # Install fonts
-brew install font-fantasque-sans-mono font-input font-source-code-pro font-fontawesome
+brew install font-sf-mono-nerd-font-ligaturized
 
 # Link installed apps.
 brew linkapps
@@ -29,9 +29,9 @@ brew cleanup
 
 # Install apps via the MacAppStore-cli
 # required: brew install mas
-mas install 470158793   # Keka
-mas install 904280696   # Things 3
-mas install 888422857   # Overcast
+mas install 470158793 # Keka
+mas install 904280696 # Things 3
+mas install 888422857 # Overcast
 
 # To install useful FZF key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install

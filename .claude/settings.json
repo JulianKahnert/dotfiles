@@ -19,5 +19,10 @@
     "deny": [],
     "ask": []
   },
-  "alwaysThinkingEnabled": true
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "theme": "auto",
+  "model": "opus"
 }

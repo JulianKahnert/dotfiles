@@ -65,19 +65,19 @@ removeUntrackedGitBranches() {
 }
 
 createPr() {
-    # Find the first commit with EMP- ticket
-    local commit=$(git log --format=%B -n 5 | grep "EMP-" | head -n 1)
+    # Find the first commit with IOSB2B- ticket
+    local commit=$(git log --format=%B -n 5 | grep "IOSB2B-" | head -n 1)
 
     if [[ -z "$commit" ]]; then
-        echo "Error: No commit with EMP- ticket found in the last 5 commits"
+        echo "Error: No commit with IOSB2B- ticket found in the last 5 commits"
         return 1
     fi
 
     # Extract ticket number
-    local ticket=$(echo "$commit" | grep -o -E 'EMP-[0-9]{1,5}')
+    local ticket=$(echo "$commit" | grep -o -E 'IOSB2B-[0-9]{1,5}')
 
     # Create PR and capture all output (including stderr for warnings)
-    local pr_output=$(gh pr create --title "$commit" --body "https://ewe-go.atlassian.net/browse/$ticket" 2>&1)
+    local pr_output=$(gh pr create --title "$commit" --body "Part of $ticket" 2>&1)
 
     # Extract PR URL from output (works for both new and existing PRs)
     local pr_url=$(echo "$pr_output" | grep -o 'https://github.com[^[:space:]]*' | tail -n 1)
@@ -89,15 +89,82 @@ createPr() {
     fi
 
     # Create Slack markdown string with Markdown links
-    local slack_message="🔍 [$ticket](https://ewe-go.atlassian.net/browse/$ticket) ist bereit zum Codereview: [PR]($pr_url)"
+    #local slack_message="🔍 [$ticket](https://ewe-go.atlassian.net/browse/$ticket) ist bereit zum Codereview: [PR]($pr_url)"
 
     # Copy to clipboard
-    echo "$slack_message" | pbcopy
+    #echo "$slack_message" | pbcopy
 
     # Print confirmation
     echo "✓ PR URL: $pr_url"
-    echo "✓ Slack message copied to clipboard:"
-    echo "$slack_message"
+    #echo "✓ Slack message copied to clipboard:"
+    #echo "$slack_message"
+}
+
+# updateRepos - in allen Git-Repos des aktuellen Ordners main auschecken und pullen
+updateRepos() {
+    local start_dir="$PWD"
+    for dir in */; do
+        local repo="${dir%/}"
+        if [ ! -d "$repo/.git" ]; then
+            continue
+        fi
+
+        cd "$start_dir/$repo" || continue
+
+        local _mb=""
+        if git show-ref --verify --quiet refs/heads/main; then
+            _mb="main"
+        elif git show-ref --verify --quiet refs/heads/master; then
+            _mb="master"
+        else
+            echo "❌ $repo: weder main noch master Branch gefunden"
+            cd "$start_dir"
+            continue
+        fi
+
+        local _cb=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+        local _stashed=0
+        if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            if git stash push --include-untracked --quiet --message "updateRepos auto-stash" >/dev/null 2>&1; then
+                _stashed=1
+            else
+                echo "❌ $repo: stash der lokalen Änderungen fehlgeschlagen"
+                cd "$start_dir"
+                continue
+            fi
+        fi
+
+        local _output=""
+        local _ok=1
+        if [ "$_cb" != "$_mb" ]; then
+            if ! _output=$(git checkout "$_mb" 2>&1); then
+                _ok=0
+            fi
+        fi
+
+        if [ "$_ok" -eq 1 ]; then
+            if ! _output=$(git pull --ff-only 2>&1); then
+                _ok=0
+            fi
+        fi
+
+        if [ "$_stashed" -eq 1 ]; then
+            local _pop_out=""
+            if ! _pop_out=$(git stash pop 2>&1); then
+                _output="${_output:+$_output; }stash pop fehlgeschlagen: $_pop_out"
+                _ok=0
+            fi
+        fi
+
+        if [ "$_ok" -eq 1 ]; then
+            echo "✅ $repo aktualisiert"
+        else
+            echo "❌ $repo: $_output"
+        fi
+
+        cd "$start_dir"
+    done
 }
 
 # cdf - cd into the directory of the selected file

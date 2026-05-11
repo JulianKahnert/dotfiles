@@ -13,3 +13,9 @@ config/*
 config/nvim/lazyvim.json
 config/nvim/lazy-lock.json
 .DS_Store
+.claude/backups
+.claude/cache
+.claude/paste-cache
+.claude/plans
+.claude/plugins
+.claude/mcp-needs-auth-cache.json

@@ -167,6 +167,17 @@ updateRepos() {
     done
 }
 
+# run swiftlint with analyze
+swiftlintFull() {
+    echo "🔨 swift build…"
+    swift build -v > build.log || return $?
+    echo "🔍 swiftlint analyze…"
+    swiftlint analyze --compiler-log-path build.log --progress --fix
+    echo "🧹 swiftlint --fix…"
+    swiftlint --fix
+    rm -f build.log
+}
+
 # cdf - cd into the directory of the selected file
 cdf() {
    local file

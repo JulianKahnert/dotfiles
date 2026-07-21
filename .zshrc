@@ -224,3 +224,23 @@ ticketUrlsSinceLastGitTag() {
         echo "Error: This is not a Git repository."
     fi
 }
+
+test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
+
+# ShellFish shows the OSC 2 terminal title as the tab title and the tmux session
+# name in its session list. Set both to the current directory. Only under ShellFish.
+if [[ "$LC_TERMINAL" == "ShellFish" ]]; then
+  autoload -Uz add-zsh-hook
+  _shellfish_dir_title() {
+    # Tab title (OSC 2) — keeps the real folder name including a leading dot.
+    typeset -f settitle > /dev/null && settitle "${PWD:t}"
+    # tmux session names may not contain '.' or ':' (tmux turns them into '_'),
+    # so strip a leading dot and sanitize the rest.
+    if [[ -n "$TMUX" ]]; then
+      local sess=${${PWD:t}#.}
+      sess=${sess//[.:]/_}
+      [[ -n "$sess" ]] && tmux rename-session -- "$sess" 2>/dev/null
+    fi
+  }
+  add-zsh-hook precmd _shellfish_dir_title
+fi

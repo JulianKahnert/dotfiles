@@ -14,6 +14,17 @@ ZSH="$DOTFILES/oh-my-zsh"
 # Consolidate PATH exports
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:$HOME/.mint/bin:$HOME/.local/bin:$PATH"
 
+# Every SSH login (Mac, ShellFish) joins the one tmux session, whatever it is named.
+# No exec: if tmux cannot start, the login falls back to a plain shell instead of closing.
+if [[ -n "$SSH_CONNECTION" && -z "$TMUX" && -o interactive && -t 0 ]]; then
+  (
+    # cmux points ZDOTDIR and CMUX_* at this one connection; a server started here would
+    # hand them to every later window, and cmux deletes that ZDOTDIR when the login ends.
+    unset ZDOTDIR ${(M)${(k)parameters}:#CMUX_*}
+    tmux -u attach-session 2>/dev/null || tmux -u new-session -s main
+  ) && exit
+fi
+
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(
   git
@@ -227,20 +238,12 @@ ticketUrlsSinceLastGitTag() {
 
 test -e "$HOME/.shellfishrc" && source "$HOME/.shellfishrc"
 
-# ShellFish shows the OSC 2 terminal title as the tab title and the tmux session
-# name in its session list. Set both to the current directory. Only under ShellFish.
+# ShellFish shows the OSC 2 terminal title as the tab title. Set it to the current
+# directory. Only under ShellFish.
 if [[ "$LC_TERMINAL" == "ShellFish" ]]; then
   autoload -Uz add-zsh-hook
   _shellfish_dir_title() {
-    # Tab title (OSC 2) — keeps the real folder name including a leading dot.
     typeset -f settitle > /dev/null && settitle "${PWD:t}"
-    # tmux session names may not contain '.' or ':' (tmux turns them into '_'),
-    # so strip a leading dot and sanitize the rest.
-    if [[ -n "$TMUX" ]]; then
-      local sess=${${PWD:t}#.}
-      sess=${sess//[.:]/_}
-      [[ -n "$sess" ]] && tmux rename-session -- "$sess" 2>/dev/null
-    fi
   }
   add-zsh-hook precmd _shellfish_dir_title
 fi

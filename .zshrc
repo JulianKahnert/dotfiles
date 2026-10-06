@@ -345,3 +345,5 @@ if [[ -n "$CMUX_WORKSPACE_ID" ]]; then
   add-zsh-hook precmd _cmux_workspace_name
   add-zsh-hook preexec _cmux_workspace_ssh_name
 fi
+
+alias gitclear='git reset --hard HEAD && git clean -fd'

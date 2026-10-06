@@ -247,3 +247,37 @@ if [[ "$LC_TERMINAL" == "ShellFish" ]]; then
   }
   add-zsh-hook precmd _shellfish_dir_title
 fi
+
+# cmux: name the workspace after the directory (rules in ~/.claude/hooks/cmux-workspace-name.sh)
+# `cmux ssh <dest>` opens a new workspace, so its name has to go in as --name up front.
+cmux() {
+  if [[ "$1" == ssh && -n "$2" && "$*" != *--name* ]]; then
+    local name
+    name="$(~/.claude/hooks/cmux-workspace-name.sh ssh-name "$2" 2>/dev/null)"
+    [[ -n "$name" ]] && set -- "$@" --name "$name"
+  fi
+  command cmux "$@"
+}
+if [[ -n "$CMUX_WORKSPACE_ID" ]]; then
+  _cmux_workspace_name() {
+    local name
+    name="$(~/.claude/hooks/cmux-workspace-name.sh name 2>/dev/null)" || return
+    [[ -z "$name" ]] && return
+    [[ "$name" == "$_cmux_last_workspace_name" ]] && return
+    _cmux_last_workspace_name="$name"
+    cmux workspace rename --workspace "$CMUX_WORKSPACE_ID" --title "$name" >/dev/null 2>&1
+  }
+  # While ssh runs, show the host; the next precmd sees a different name and switches back.
+  _cmux_workspace_ssh_name() {
+    local -a words=(${(z)1})
+    [[ "${words[1]}" == ssh ]] || return
+    local name
+    name="$(~/.claude/hooks/cmux-workspace-name.sh ssh-name "${(Q@)words[2,-1]}" 2>/dev/null)" || return
+    [[ -z "$name" ]] && return
+    _cmux_last_workspace_name="$name"
+    cmux workspace rename --workspace "$CMUX_WORKSPACE_ID" --title "$name" >/dev/null 2>&1
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd _cmux_workspace_name
+  add-zsh-hook preexec _cmux_workspace_ssh_name
+fi

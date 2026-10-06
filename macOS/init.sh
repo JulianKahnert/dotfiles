@@ -11,8 +11,8 @@ brew upgrade
 
 # Install zsh and some other useful tools
 brew install zsh-syntax-highlighting \
-    git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat \
-    mas appcleaner caffeine \
+    git openssh ag fzf ag tmux ssh-copy-id tree htop fd bat mole \
+    mas caffeine \
     fork zed lazygit
 
 # Install more recent versions of some macOS tools.
@@ -34,4 +34,4 @@ mas install 904280696 # Things 3
 mas install 888422857 # Overcast
 
 # To install useful FZF key bindings and fuzzy completion:
-$(brew --prefix)/opt/fzf/install
+"$(brew --prefix)"/opt/fzf/install

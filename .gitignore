@@ -19,3 +19,5 @@ config/nvim/lazy-lock.json
 .claude/plans
 .claude/plugins
 .claude/mcp-needs-auth-cache.json
+.claude/sessions
+.claude/settings.local.json

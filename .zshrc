@@ -87,8 +87,15 @@ createPr() {
     # Extract ticket number
     local ticket=$(echo "$commit" | grep -o -E 'IOSB2B-[0-9]{1,5}')
 
+    # Use "Resolves" for offblock-business-ios repo, "Part of" elsewhere
+    local body_prefix="Part of"
+    local remote_url=$(git remote get-url origin 2>/dev/null)
+    if [[ "$remote_url" == *"offblock-aero/offblock-business-ios"* ]]; then
+        body_prefix="Resolves"
+    fi
+
     # Create PR and capture all output (including stderr for warnings)
-    local pr_output=$(gh pr create --title "$commit" --body "Part of $ticket" 2>&1)
+    local pr_output=$(gh pr create --title "$commit" --body "$body_prefix $ticket" 2>&1)
 
     # Extract PR URL from output (works for both new and existing PRs)
     local pr_url=$(echo "$pr_output" | grep -o 'https://github.com[^[:space:]]*' | tail -n 1)
@@ -109,6 +116,53 @@ createPr() {
     echo "✓ PR URL: $pr_url"
     #echo "✓ Slack message copied to clipboard:"
     #echo "$slack_message"
+}
+
+createPrDraft() {
+    # Find the first commit with IOSB2B- ticket
+    local commit=$(git log --format=%B -n 5 | grep "IOSB2B-" | head -n 1)
+
+    if [[ -z "$commit" ]]; then
+        echo "Error: No commit with IOSB2B- ticket found in the last 5 commits"
+        return 1
+    fi
+
+    # Extract ticket number
+    local ticket=$(echo "$commit" | grep -o -E 'IOSB2B-[0-9]{1,5}')
+
+    # Use "Resolves" for offblock-business-ios repo, "Part of" elsewhere
+    local body_prefix="Part of"
+    local remote_url=$(git remote get-url origin 2>/dev/null)
+    if [[ "$remote_url" == *"offblock-aero/offblock-business-ios"* ]]; then
+        body_prefix="Resolves"
+    fi
+
+    # Create PR and capture all output (including stderr for warnings)
+    local pr_output=$(gh pr create --draft --title "$commit" --body "$body_prefix $ticket" 2>&1)
+
+    # Extract PR URL from output (works for both new and existing PRs)
+    local pr_url=$(echo "$pr_output" | grep -o 'https://github.com[^[:space:]]*' | tail -n 1)
+
+    if [[ -z "$pr_url" ]]; then
+        echo "Error: Could not extract PR URL from output:"
+        echo "$pr_output"
+        return 1
+    fi
+
+    # Create Slack markdown string with Markdown links
+    #local slack_message="🔍 [$ticket](https://ewe-go.atlassian.net/browse/$ticket) ist bereit zum Codereview: [PR]($pr_url)"
+
+    # Copy to clipboard
+    #echo "$slack_message" | pbcopy
+
+    # Print confirmation
+    echo "✓ PR URL: $pr_url"
+    #echo "✓ Slack message copied to clipboard:"
+    #echo "$slack_message"
+}
+
+buildAll() {
+    /Users/jukaoffblock/GIT/build-all-platforms.swift "$PWD"
 }
 
 # updateRepos - in allen Git-Repos des aktuellen Ordners main auschecken und pullen
@@ -247,6 +301,8 @@ if [[ "$LC_TERMINAL" == "ShellFish" ]]; then
   }
   add-zsh-hook precmd _shellfish_dir_title
 fi
+
+alias codereview='open -b de.JulianKahnert.CodeReview'
 
 # cmux: name the workspace after the directory (rules in ~/.claude/hooks/cmux-workspace-name.sh)
 # `cmux ssh <dest>` opens a new workspace, so its name has to go in as --name up front.

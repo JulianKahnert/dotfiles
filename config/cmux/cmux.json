@@ -6,6 +6,14 @@
     "minimalMode": true
   },
 
+  "workspaceGroups": {
+    "byCwd": {
+      "~/GIT/.worktrees": { "color": "#1087DE" },
+      "~/GIT/features": { "color": "#1087DE" },
+      "~/GIT/offblock*": { "color": "#1087DE" }
+    }
+  },
+
 
   // This file uses JSON with comments (JSONC).
   // Uncomment and edit any setting to make it file-managed.

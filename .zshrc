@@ -321,7 +321,7 @@ if [[ -n "$CMUX_WORKSPACE_ID" ]]; then
     [[ -z "$name" ]] && return
     [[ "$name" == "$_cmux_last_workspace_name" ]] && return
     _cmux_last_workspace_name="$name"
-    cmux workspace rename --workspace "$CMUX_WORKSPACE_ID" --title "$name" >/dev/null 2>&1
+    ~/.claude/hooks/cmux-workspace-name.sh apply >/dev/null 2>&1
   }
   # While ssh runs, show the host; the next precmd sees a different name and switches back.
   _cmux_workspace_ssh_name() {

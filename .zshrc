@@ -307,12 +307,20 @@ alias codereview='open -b de.JulianKahnert.CodeReview'
 # cmux: name the workspace after the directory (rules in ~/.claude/hooks/cmux-workspace-name.sh)
 # `cmux ssh <dest>` opens a new workspace, so its name has to go in as --name up front.
 cmux() {
-  if [[ "$1" == ssh && -n "$2" && "$*" != *--name* ]]; then
-    local name
-    name="$(~/.claude/hooks/cmux-workspace-name.sh ssh-name "$2" 2>/dev/null)"
+  [[ "$1" == ssh && -n "$2" ]] || { command cmux "$@"; return }
+  local script=~/.claude/hooks/cmux-workspace-name.sh name group out rc
+  if [[ "$*" != *--name* ]]; then
+    name="$("$script" ssh-name "$2" 2>/dev/null)"
     [[ -n "$name" ]] && set -- "$@" --name "$name"
   fi
-  command cmux "$@"
+  group="$("$script" ssh-group "$2" 2>/dev/null)"
+  [[ -z "$group" ]] && { command cmux "$@"; return }
+  # cmux ssh has no --group flag; the new workspace's ref is only known from its output.
+  out="$(command cmux "$@")"
+  rc=$?
+  print -r -- "$out"
+  [[ "$out" =~ 'workspace:[0-9]+' ]] && "$script" join "$MATCH" "$group" >/dev/null 2>&1
+  return $rc
 }
 if [[ -n "$CMUX_WORKSPACE_ID" ]]; then
   _cmux_workspace_name() {

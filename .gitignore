@@ -1,6 +1,7 @@
 # you have to pick the specific files you want to track
 config/*
 !config/nvim
+!config/ghostty
 .claude/debug
 .claude/file-history
 .claude/history.jsonl

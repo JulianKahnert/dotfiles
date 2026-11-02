@@ -14,7 +14,10 @@ if [ "install" = "$1" ]; then
     ln -sf "$DOTDIR/config" 	    "$HOME/.config"
 
     # install some other stuff
-    echo "Password requried for the following steps:"
+    echo "Password required for the following steps:"
+    sudo -v
+    # Keep sudo alive until the install finished, so the password is asked only once
+    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
     bash "$DOTDIR/macOS/init.sh"
 
     # Link font to library and clear font cache for user fonts

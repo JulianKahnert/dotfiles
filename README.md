@@ -2,6 +2,14 @@ My personal set of config files for vim & zsh
 
 # Installation
 
+On a fresh Mac install Homebrew first, it also brings the Command Line Tools (git):
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Then clone and install (asks for the password once):
+
 ```
 git clone --recurse-submodules https://github.com/JulianKahnert/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles.sh install

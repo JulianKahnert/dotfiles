@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# Get Homebrew: brew.sh (skipped when already installed)
+# Homebrew (brew.sh) has to be installed already
 if [ ! -x /opt/homebrew/bin/brew ]; then
-    # NONINTERACTIVE needs cached sudo credentials
-    sudo -v
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "Error: Homebrew not found, install it first: https://brew.sh" >&2
+    exit 1
 fi
-# Make brew available in this script, also on a fresh machine
+# Make brew available in this script
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Never stop at "Do you want to proceed?"

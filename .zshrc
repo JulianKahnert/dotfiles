@@ -307,6 +307,7 @@ alias codereview='open -b de.JulianKahnert.CodeReview'
 # cmux: name the workspace after the directory (rules in ~/.claude/hooks/cmux-workspace-name.sh)
 # `cmux ssh <dest>` opens a new workspace, so its name has to go in as --name up front.
 cmux() {
+  [[ "$1" == ssh-tmux && -n "$2" ]] && { _cmux_ssh_tmux "$@"; return }
   [[ "$1" == ssh && -n "$2" ]] || { command cmux "$@"; return }
   local script=~/.claude/hooks/cmux-workspace-name.sh name group out rc
   if [[ "$*" != *--name* ]]; then
@@ -320,6 +321,34 @@ cmux() {
   rc=$?
   print -r -- "$out"
   [[ "$out" =~ 'workspace:[0-9]+' ]] && "$script" join "$MATCH" "$group" >/dev/null 2>&1
+  return $rc
+}
+# `cmux ssh-tmux <dest>` mirrors each tmux session into a new workspace but prints no refs,
+# and may run ssh inline for a login, so its output stays on the terminal. The mirrors are
+# the workspaces missing from the list taken before; they can appear a moment after it returns.
+_cmux_ssh_tmux() {
+  local script=~/.claude/hooks/cmux-workspace-name.sh group host rc i ws title
+  local -a before new
+  group="$("$script" ssh-group "$2" 2>/dev/null)"
+  [[ -z "$group" ]] && { command cmux "$@"; return }
+  before=(${(f)"$(command cmux workspace list --json 2>/dev/null | jq -r '.workspaces[].ref')"})
+  command cmux "$@"
+  rc=$?
+  (( rc == 0 )) || return $rc
+  for i in {1..20}; do
+    new=(${(f)"$(command cmux workspace list --json 2>/dev/null | jq -r '.workspaces[].ref')"})
+    new=(${new:|before})
+    (( $#new )) && break
+    sleep 0.5
+  done
+  # A mirror is titled after its tmux session alone; prefix the host like `cmux ssh` does.
+  host="$("$script" ssh-name "$2" 2>/dev/null)"
+  for ws in $new; do
+    "$script" join "$ws" "$group" >/dev/null 2>&1
+    title="$(command cmux workspace list --json 2>/dev/null | jq -r --arg ws "$ws" '.workspaces[] | select(.ref == $ws) | .title')"
+    [[ -n "$host" && -n "$title" && "$title" != "$host"* ]] &&
+      command cmux workspace rename "$ws" --title "$host · $title" >/dev/null 2>&1
+  done
   return $rc
 }
 if [[ -n "$CMUX_WORKSPACE_ID" ]]; then

@@ -21,7 +21,7 @@ brew upgrade
 brew install zsh-syntax-highlighting \
     git openssh ag fzf tmux ssh-copy-id tree htop fd bat mole \
     neovim mas caffeine \
-    fork zed lazygit \
+    fork zed lazygit swiftlint \
     claude-code
 
 # Install fonts
